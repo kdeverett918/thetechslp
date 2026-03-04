@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router';
 import { Menu, X } from 'lucide-react';
 import { gsap } from 'gsap';
 import { cn } from '../utils/cn';
@@ -16,6 +17,10 @@ export default function Navigation() {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+    const location = useLocation();
+    const isHome = location.pathname === '/';
+
+    const resolveHref = (hash: string) => isHome ? hash : `/${hash}`;
 
     // Handle scroll state for navbar styling
     useEffect(() => {
@@ -62,7 +67,7 @@ export default function Navigation() {
             <div className="container-wide flex items-center justify-between">
                 {/* Logo */}
                 <a
-                    href="#"
+                    href="/"
                     className="z-50 relative mix-blend-difference text-[var(--color-text)]"
                 >
                     <Logo />
@@ -73,13 +78,13 @@ export default function Navigation() {
                     {navLinks.map((link) => (
                         <a
                             key={link.href}
-                            href={link.href}
+                            href={resolveHref(link.href)}
                             className="text-[var(--color-text)] font-body font-medium hover:text-[var(--color-primary)] transition-colors"
                         >
                             {link.label}
                         </a>
                     ))}
-                    <a href="#contact" className="btn-primary">
+                    <a href={resolveHref('#contact')} className="btn-primary">
                         Start a Project
                     </a>
                 </nav>
@@ -104,7 +109,7 @@ export default function Navigation() {
                     {navLinks.map((link) => (
                         <a
                             key={link.href}
-                            href={link.href}
+                            href={resolveHref(link.href)}
                             onClick={() => setIsOpen(false)}
                             className="text-4xl font-display font-bold text-[var(--color-bg)] hover:text-[var(--color-primary)] transition-colors"
                         >
@@ -113,7 +118,7 @@ export default function Navigation() {
                     ))}
                     <div className="pt-8">
                         <a
-                            href="#contact"
+                            href={resolveHref('#contact')}
                             onClick={() => setIsOpen(false)}
                             className="btn-primary text-xl"
                         >
