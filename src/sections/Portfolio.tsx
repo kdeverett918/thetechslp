@@ -26,7 +26,7 @@ const projects = [
         link: 'https://voiceiq.onrender.com',
     },
     {
-        title: 'Dysphagia Lab',
+        title: 'Anatomy Lab',
         category: 'Education Prototype',
         description: 'An interactive anatomy learning platform for SLP students and clinicians. Progressive modules with 3D models, scaffolded instruction, quizzes, and clinical reasoning exercises — from oral cavity fundamentals to laryngeal mastery.',
         stack: ['Next.js', 'React', '3D Models'],
