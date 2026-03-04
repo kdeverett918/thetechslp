@@ -26,6 +26,13 @@ const projects = [
         link: 'https://voiceiq.onrender.com',
     },
     {
+        title: 'Dysphagia Lab',
+        category: 'Education Prototype',
+        description: 'An interactive anatomy learning platform for SLP students and clinicians. Progressive modules with 3D models, scaffolded instruction, quizzes, and clinical reasoning exercises — from oral cavity fundamentals to laryngeal mastery.',
+        stack: ['Next.js', 'React', '3D Models'],
+        link: 'https://dysphagialab.onrender.com',
+    },
+    {
         title: 'Informed Consent Tool',
         category: 'Clinical Workflow',
         description: 'A guided informed consent platform for dysphagia clinicians. Step-by-step capacity assessment, risk disclosure, teach-back verification, and HIPAA-compliant documentation — built on the Dysphagia Outreach Project\'s evidence-based checklist.',
