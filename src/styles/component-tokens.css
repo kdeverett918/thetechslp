@@ -1,0 +1,84 @@
+@layer components {
+
+    /* === Base Containers === */
+    .section-padding {
+        @apply py-24 md:py-32;
+    }
+
+    .container-wide {
+        @apply max-w-[1400px] mx-auto px-6 md:px-12;
+    }
+
+    /* === Hard/Soft brutalist cards === */
+    /* Reverses standard Tailwind nesting - sharp outside, very soft inside */
+    .card-outer {
+        @apply bg-neutral-950 rounded-none p-[2px];
+        box-shadow: var(--shadow-solid-md);
+        transition: transform 0.4s var(--ease-brutal), box-shadow 0.4s var(--ease-brutal);
+    }
+
+    .card-outer:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: var(--shadow-solid-lg);
+    }
+
+    .card-inner {
+        @apply bg-[var(--color-bg)] rounded-[var(--radius-xl)] w-full h-full text-[var(--color-text)];
+    }
+
+    .card-inner-dark {
+        @apply bg-[var(--color-text)] rounded-[var(--radius-xl)] w-full h-full text-[var(--color-bg)];
+    }
+
+    .card-solid {
+        @apply border-[length:var(--border-width-base)] border-[var(--color-border)] rounded-[var(--radius-xl)] bg-[var(--color-bg)] text-[var(--color-text)];
+        box-shadow: var(--shadow-solid-sm);
+        transition: transform 0.4s var(--ease-brutal), box-shadow 0.4s var(--ease-brutal);
+    }
+
+    .card-solid:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-solid-md);
+    }
+
+    /* === Buttons === */
+    .btn-primary {
+        @apply inline-flex items-center justify-center font-display font-medium tracking-wide border-[length:var(--border-width-base)] border-[var(--color-border)] transition-all select-none text-[var(--color-text-on-primary)] px-8 py-4;
+        border-radius: var(--radius-md);
+        transition-duration: var(--duration-fast);
+        transition-timing-function: var(--ease-brutal);
+        background-color: var(--color-primary);
+        box-shadow: var(--shadow-solid-md);
+    }
+
+    .btn-primary:hover {
+        background-color: var(--color-primary-hover);
+        transform: translate(-2px, -2px);
+        box-shadow: var(--shadow-solid-lg);
+    }
+
+    .btn-primary:active {
+        transform: translate(2px, 2px);
+        box-shadow: none;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center justify-center font-display font-medium tracking-wide border-[length:var(--border-width-base)] border-[var(--color-border)] transition-all select-none text-[var(--color-text)] px-8 py-4;
+        border-radius: var(--radius-md);
+        transition-duration: var(--duration-fast);
+        transition-timing-function: var(--ease-brutal);
+        background-color: var(--color-bg);
+        box-shadow: var(--shadow-solid-sm);
+    }
+
+    .btn-secondary:hover {
+        background-color: var(--color-surface);
+        transform: translate(-1px, -1px);
+        box-shadow: var(--shadow-solid-md);
+    }
+
+    /* === Tags/Badges === */
+    .badge-mono {
+        @apply inline-flex items-center px-3 py-1 text-xs font-mono font-bold tracking-wider uppercase border-[length:var(--border-width-base)] border-[var(--color-border)] rounded-[var(--radius-sm)] bg-[var(--color-secondary)] text-[var(--color-text)];
+    }
+}
