@@ -16,6 +16,7 @@ export default function PromptLibrary() {
     const gridRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        document.title = 'SLP Prompt Library — The Tech SLP';
         window.scrollTo(0, 0);
     }, []);
 

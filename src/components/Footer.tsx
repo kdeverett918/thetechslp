@@ -14,9 +14,8 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className="container-wide mt-8 pt-6 border-t border-[var(--color-bg)]/20 flex flex-col md:flex-row items-center justify-between font-mono text-xs text-[var(--color-bg)]/50">
+            <div className="container-wide mt-8 pt-6 border-t border-[var(--color-bg)]/20 font-mono text-xs text-[var(--color-bg)]/50">
                 <p>&copy; {new Date().getFullYear()} The Tech SLP. All rights reserved.</p>
-                <p className="mt-2 md:mt-0">DESIGNED AND BUILT IN SEATTLE</p>
             </div>
         </footer>
     );

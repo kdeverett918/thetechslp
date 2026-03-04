@@ -9,8 +9,14 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
     return (
         <>
+            <a
+                href="#main"
+                className="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[100] focus:bg-[var(--color-primary)] focus:text-[var(--color-text-on-primary)] focus:px-6 focus:py-3 focus:font-display focus:font-bold"
+            >
+                Skip to main content
+            </a>
             <Navigation />
-            <main className="w-full relative z-10 flex flex-col bg-[var(--color-bg)]">
+            <main id="main" className="w-full relative z-10 flex flex-col bg-[var(--color-bg)]">
                 {children}
             </main>
             <Footer />

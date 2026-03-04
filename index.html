@@ -8,13 +8,21 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!-- Canonical -->
+    <link rel="canonical" href="https://thetechslp.com/" />
+
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://thetechslp.com" />
     <meta property="og:title" content="The Tech SLP — Clinical Technology Studio" />
     <meta property="og:description" content="Where clinical expertise meets modern technology. Speech-language pathology tools, interactive therapy resources, and clinical technology consulting." />
     <meta property="og:image" content="https://thetechslp.com/og-image.png" />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Tech SLP — Clinical Technology Studio" />
+    <meta name="twitter:description" content="Where clinical expertise meets modern technology. Speech-language pathology tools, interactive therapy resources, and clinical technology consulting." />
+    <meta name="twitter:image" content="https://thetechslp.com/og-image.png" />
 
     <!-- Google Fonts preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,6 +33,29 @@
     />
 
     <title>The Tech SLP — Clinical Technology Studio</title>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "The Tech SLP",
+      "url": "https://thetechslp.com",
+      "description": "Clinical technology design and development for speech-language pathologists",
+      "founder": {
+        "@type": "Person",
+        "name": "Kristine Deverett",
+        "jobTitle": "Speech-Language Pathologist & Full Stack Developer",
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Professional Certification",
+          "name": "CCC-SLP"
+        }
+      },
+      "areaServed": "US",
+      "serviceType": ["Web Development", "Clinical Software", "Healthcare UX Design"]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

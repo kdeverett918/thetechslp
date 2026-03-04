@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useLocation } from 'react-router';
 import { Menu, X } from 'lucide-react';
 import { gsap } from 'gsap';
@@ -17,10 +17,13 @@ export default function Navigation() {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+    const toggleRef = useRef<HTMLButtonElement>(null);
     const location = useLocation();
     const isHome = location.pathname === '/';
 
     const resolveHref = (hash: string) => isHome ? hash : `/${hash}`;
+
+    const closeMenu = useCallback(() => setIsOpen(false), []);
 
     // Handle scroll state for navbar styling
     useEffect(() => {
@@ -31,6 +34,19 @@ export default function Navigation() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Escape key closes menu
+    useEffect(() => {
+        if (!isOpen) return;
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                closeMenu();
+                toggleRef.current?.focus();
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [isOpen, closeMenu]);
+
     // GSAP animation for mobile menu
     useEffect(() => {
         if (!menuRef.current) return;
@@ -40,6 +56,11 @@ export default function Navigation() {
                 clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
                 duration: 0.6,
                 ease: 'cubic-bezier(0.25, 1, 0.5, 1)',
+                onComplete: () => {
+                    // Focus first menu link after animation
+                    const firstLink = menuRef.current?.querySelector('a');
+                    firstLink?.focus();
+                },
             });
             gsap.fromTo(
                 menuRef.current.querySelectorAll('a'),
@@ -55,7 +76,14 @@ export default function Navigation() {
         }
     }, [isOpen]);
 
-    const toggleMenu = () => setIsOpen(!isOpen);
+    const toggleMenu = () => {
+        if (isOpen) {
+            setIsOpen(false);
+            toggleRef.current?.focus();
+        } else {
+            setIsOpen(true);
+        }
+    };
 
     return (
         <header
@@ -91,9 +119,12 @@ export default function Navigation() {
 
                 {/* Mobile Toggle */}
                 <button
+                    ref={toggleRef}
                     className="md:hidden relative z-50 p-2 text-[var(--color-text)] mix-blend-difference"
                     onClick={toggleMenu}
                     aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                    aria-expanded={isOpen}
+                    aria-controls="mobile-menu"
                 >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
@@ -102,6 +133,10 @@ export default function Navigation() {
             {/* Mobile Menu Panel */}
             <div
                 ref={menuRef}
+                id="mobile-menu"
+                role="dialog"
+                aria-label="Navigation menu"
+                aria-hidden={!isOpen}
                 className="fixed inset-0 bg-[var(--color-text)] z-40 flex flex-col items-center justify-center"
                 style={{ clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)' }}
             >
@@ -110,7 +145,7 @@ export default function Navigation() {
                         <a
                             key={link.href}
                             href={resolveHref(link.href)}
-                            onClick={() => setIsOpen(false)}
+                            onClick={closeMenu}
                             className="text-4xl font-display font-bold text-[var(--color-bg)] hover:text-[var(--color-primary)] transition-colors"
                         >
                             {link.label}
@@ -119,7 +154,7 @@ export default function Navigation() {
                     <div className="pt-8">
                         <a
                             href={resolveHref('#contact')}
-                            onClick={() => setIsOpen(false)}
+                            onClick={closeMenu}
                             className="btn-primary text-xl"
                         >
                             Start a Project
