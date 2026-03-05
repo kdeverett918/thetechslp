@@ -17,166 +17,315 @@
   .card {
     width: 1200px;
     height: 630px;
-    background: #f5f0eb;
+    background: #1a1816;
     position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
   }
 
-  /* Decorative geometric shapes */
+  /* Scanline overlay */
+  .scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.008) 2px,
+      rgba(255,255,255,0.008) 4px
+    );
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  /* Grid background */
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(208,94,65,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(208,94,65,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Glowing orbs */
+  .orb-1 {
+    position: absolute;
+    top: -80px;
+    right: 120px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(208,94,65,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .orb-2 {
+    position: absolute;
+    bottom: -100px;
+    left: -60px;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(143,165,150,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  /* Geometric brutalist shapes */
   .shape-1 {
     position: absolute;
-    top: -30px;
-    right: 60px;
-    width: 180px;
-    height: 180px;
-    background: #8fa596;
-    opacity: 0.25;
-    transform: rotate(15deg);
-    border-radius: 8px;
+    top: 40px;
+    right: 80px;
+    width: 120px;
+    height: 120px;
+    border: 2px solid rgba(208,94,65,0.25);
+    transform: rotate(12deg);
+    border-radius: 4px;
   }
 
   .shape-2 {
     position: absolute;
-    bottom: -20px;
-    left: 50px;
-    width: 140px;
-    height: 140px;
-    background: #d05e41;
-    opacity: 0.2;
-    transform: rotate(-10deg);
-    border-radius: 8px;
+    bottom: 60px;
+    right: 200px;
+    width: 80px;
+    height: 80px;
+    background: rgba(143,165,150,0.12);
+    border: 2px solid rgba(143,165,150,0.2);
+    transform: rotate(-8deg);
+    border-radius: 4px;
   }
 
   .shape-3 {
     position: absolute;
-    top: 180px;
-    left: -40px;
-    width: 80px;
-    height: 80px;
-    border: 3px solid #8fa596;
-    opacity: 0.3;
+    top: 200px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    background: rgba(208,94,65,0.1);
+    border: 2px solid rgba(208,94,65,0.2);
     transform: rotate(25deg);
     border-radius: 4px;
   }
 
-  .shape-4 {
+  /* Decorative code lines on the right */
+  .code-lines {
     position: absolute;
-    bottom: 120px;
-    right: -20px;
-    width: 100px;
-    height: 100px;
-    border: 3px solid #d05e41;
-    opacity: 0.2;
-    transform: rotate(-20deg);
-    border-radius: 4px;
-  }
-
-  /* Subtle dot grid pattern */
-  .dots {
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle, #c4b5a4 0.8px, transparent 0.8px);
-    background-size: 32px 32px;
-    opacity: 0.12;
-  }
-
-  .content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
+    top: 160px;
+    right: 80px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0;
+    gap: 8px;
+    opacity: 0.15;
   }
 
-  .tagline {
+  .code-line {
+    height: 3px;
+    background: #d05e41;
+    border-radius: 2px;
+  }
+
+  /* Left content area */
+  .content {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 90px;
+    max-width: 780px;
+  }
+
+  .mono-label {
     font-family: 'Space Mono', monospace;
-    font-size: 14px;
-    letter-spacing: 4px;
+    font-size: 13px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: #d05e41;
-    margin-bottom: 20px;
-    font-weight: 400;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .mono-label::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: #d05e41;
   }
 
   .title {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 82px;
+    font-size: 88px;
     font-weight: 700;
-    color: #1a1a1a;
-    line-height: 1;
-    letter-spacing: -2px;
-    margin-bottom: 12px;
+    color: #f5f0eb;
+    line-height: 0.95;
+    letter-spacing: -3px;
+    margin-bottom: 8px;
+  }
+
+  .title span {
+    color: #d05e41;
   }
 
   .subtitle {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 26px;
-    font-weight: 500;
-    color: #5a5a5a;
-    letter-spacing: 6px;
+    font-family: 'Space Mono', monospace;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(245,240,235,0.4);
+    letter-spacing: 5px;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    margin-bottom: 44px;
   }
 
-  .footer-bar {
+  /* Tech badge bar */
+  .badge-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1.5px solid;
+  }
+
+  .badge-primary {
+    color: #d05e41;
+    border-color: rgba(208,94,65,0.35);
+    background: rgba(208,94,65,0.08);
+  }
+
+  .badge-secondary {
+    color: #8fa596;
+    border-color: rgba(143,165,150,0.3);
+    background: rgba(143,165,150,0.06);
+  }
+
+  .badge-neutral {
+    color: rgba(245,240,235,0.5);
+    border-color: rgba(245,240,235,0.12);
+    background: rgba(245,240,235,0.03);
+  }
+
+  /* Bottom bar */
+  .bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: rgba(245,240,235,0.03);
+    border-top: 1px solid rgba(245,240,235,0.06);
     display: flex;
     align-items: center;
-    gap: 16px;
-    background: #1a1a1a;
-    padding: 14px 36px;
-    border-radius: 6px;
+    padding: 0 90px;
+    gap: 20px;
+    z-index: 5;
   }
 
-  .footer-bar span {
+  .bottom-bar span {
     font-family: 'Space Mono', monospace;
-    font-size: 14px;
-    color: #f5f0eb;
+    font-size: 12px;
+    color: rgba(245,240,235,0.35);
     letter-spacing: 1.5px;
     text-transform: uppercase;
   }
 
-  .footer-bar .dot {
-    width: 5px;
-    height: 5px;
+  .bottom-bar .sep {
+    width: 4px;
+    height: 4px;
     background: #d05e41;
     border-radius: 50%;
     flex-shrink: 0;
   }
 
-  /* Terracotta accent line at bottom */
+  /* Terracotta accent line at very bottom */
   .accent-line {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, #d05e41, #e07a5f, #d05e41);
+    height: 3px;
+    background: linear-gradient(90deg, #d05e41, #e07a5f 40%, rgba(143,165,150,0.6) 100%);
+    z-index: 20;
   }
+
+  /* Top-right corner terminal decoration */
+  .terminal-dots {
+    position: absolute;
+    top: 36px;
+    left: 90px;
+    display: flex;
+    gap: 8px;
+    z-index: 5;
+  }
+
+  .terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid;
+  }
+
+  .td-red { border-color: rgba(208,94,65,0.5); background: rgba(208,94,65,0.15); }
+  .td-yellow { border-color: rgba(212,168,83,0.4); background: rgba(212,168,83,0.1); }
+  .td-green { border-color: rgba(143,165,150,0.5); background: rgba(143,165,150,0.15); }
 </style>
 </head>
 <body>
   <div class="card">
-    <div class="dots"></div>
+    <div class="grid-bg"></div>
+    <div class="scanlines"></div>
+    <div class="orb-1"></div>
+    <div class="orb-2"></div>
     <div class="shape-1"></div>
     <div class="shape-2"></div>
     <div class="shape-3"></div>
-    <div class="shape-4"></div>
+
+    <!-- Decorative code lines -->
+    <div class="code-lines">
+      <div class="code-line" style="width: 180px;"></div>
+      <div class="code-line" style="width: 120px; opacity: 0.7;"></div>
+      <div class="code-line" style="width: 200px;"></div>
+      <div class="code-line" style="width: 90px; opacity: 0.5;"></div>
+      <div class="code-line" style="width: 160px; opacity: 0.8;"></div>
+      <div class="code-line" style="width: 140px; opacity: 0.6;"></div>
+      <div class="code-line" style="width: 100px; opacity: 0.4;"></div>
+      <div class="code-line" style="width: 220px;"></div>
+      <div class="code-line" style="width: 80px; opacity: 0.5;"></div>
+      <div class="code-line" style="width: 170px; opacity: 0.7;"></div>
+    </div>
+
+    <!-- Terminal window dots -->
+    <div class="terminal-dots">
+      <div class="terminal-dot td-red"></div>
+      <div class="terminal-dot td-yellow"></div>
+      <div class="terminal-dot td-green"></div>
+    </div>
 
     <div class="content">
-      <div class="tagline">Where Clinical Expertise Meets Technology</div>
-      <div class="title">The Tech SLP</div>
-      <div class="subtitle">Clinical Technology Studio</div>
-      <div class="footer-bar">
-        <span>thetechslp.com</span>
-        <div class="dot"></div>
-        <span>Kristine Deverett, CCC-SLP</span>
+      <div class="mono-label">Clinical Technology Studio</div>
+      <div class="title">The Tech<br><span>SLP</span></div>
+      <div class="subtitle">Build &middot; Ship &middot; Heal</div>
+      <div class="badge-row">
+        <div class="badge badge-primary">React + TypeScript</div>
+        <div class="badge badge-secondary">Clinical UX</div>
+        <div class="badge badge-neutral">AI Integration</div>
+        <div class="badge badge-primary">HIPAA-Ready</div>
       </div>
+    </div>
+
+    <div class="bottom-bar">
+      <span>thetechslp.com</span>
+      <div class="sep"></div>
+      <span>Kristine Deverett, CCC-SLP</span>
+      <div class="sep"></div>
+      <span>Seattle, WA</span>
     </div>
 
     <div class="accent-line"></div>
