@@ -96,9 +96,12 @@ export default function Navigation() {
                 {/* Logo */}
                 <a
                     href="/"
-                    className="z-50 relative mix-blend-difference text-[var(--color-text)]"
+                    className={cn(
+                        'z-50 relative transition-colors duration-300',
+                        isScrolled ? 'text-[var(--color-secondary)]' : 'text-[var(--color-text)]'
+                    )}
                 >
-                    <Logo />
+                    <Logo isScrolled={isScrolled} />
                 </a>
 
                 {/* Desktop Nav */}
@@ -112,7 +115,13 @@ export default function Navigation() {
                             {link.label}
                         </a>
                     ))}
-                    <a href={resolveHref('#contact')} className="btn-primary">
+                    <a
+                        href={resolveHref('#contact')}
+                        className={cn(
+                            'btn-primary transition-all duration-300',
+                            isScrolled && 'bg-[var(--color-secondary)] border-[var(--color-secondary)] hover:bg-[var(--color-secondary)]/80'
+                        )}
+                    >
                         Start a Project
                     </a>
                 </nav>
@@ -120,7 +129,10 @@ export default function Navigation() {
                 {/* Mobile Toggle */}
                 <button
                     ref={toggleRef}
-                    className="md:hidden relative z-50 p-2 text-[var(--color-text)] mix-blend-difference"
+                    className={cn(
+                        'md:hidden relative z-50 p-2 transition-colors duration-300',
+                        isScrolled ? 'text-[var(--color-secondary)]' : 'text-[var(--color-text)]'
+                    )}
                     onClick={toggleMenu}
                     aria-label={isOpen ? 'Close menu' : 'Open menu'}
                     aria-expanded={isOpen}

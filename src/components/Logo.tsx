@@ -1,4 +1,6 @@
-export default function Logo({ className = '' }: { className?: string }) {
+export default function Logo({ className = '', isScrolled = false }: { className?: string; isScrolled?: boolean }) {
+    const accentColor = isScrolled ? 'var(--color-secondary)' : 'var(--color-primary)';
+
     return (
         <span className={`inline-flex items-center gap-2.5 ${className}`}>
             {/* Logo mark — speech bubble + circuit node */}
@@ -13,9 +15,10 @@ export default function Logo({ className = '' }: { className?: string }) {
                 {/* Speech bubble outline */}
                 <path
                     d="M4 6C4 4.89543 4.89543 4 6 4H30C31.1046 4 32 4.89543 32 6V22C32 23.1046 31.1046 24 30 24H14L8 30V24H6C4.89543 24 4 23.1046 4 22V6Z"
-                    fill="var(--color-primary)"
+                    fill={accentColor}
                     stroke="var(--color-text)"
                     strokeWidth="2"
+                    style={{ transition: 'fill 0.3s ease' }}
                 />
                 {/* Tech circuit lines inside bubble */}
                 <line x1="10" y1="10" x2="18" y2="10" stroke="var(--color-bg)" strokeWidth="2" strokeLinecap="round" />
@@ -28,7 +31,7 @@ export default function Logo({ className = '' }: { className?: string }) {
             </svg>
             {/* Wordmark */}
             <span className="text-2xl font-display font-bold tracking-tight leading-none">
-                the tech <span className="text-[var(--color-primary)]">slp</span>
+                the tech <span className="transition-colors duration-300" style={{ color: accentColor }}>slp</span>
             </span>
         </span>
     );

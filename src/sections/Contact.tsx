@@ -45,8 +45,19 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="section-padding bg-[var(--color-bg)]">
-            <div className="container-wide max-w-5xl">
+        <section id="contact" className="section-padding bg-[var(--color-bg)] relative overflow-hidden">
+            {/* Background Architectural Grid Pattern */}
+            <div
+                className="absolute inset-0 z-0 opacity-10 pointer-events-none"
+                style={{
+                    backgroundImage: `
+                        linear-gradient(to right, var(--color-text) 1px, transparent 1px),
+                        linear-gradient(to bottom, var(--color-text) 1px, transparent 1px)
+                    `,
+                    backgroundSize: '4rem 4rem',
+                }}
+            />
+            <div className="container-wide max-w-5xl relative z-10">
 
                 <div ref={containerRef} className="card-solid p-8 md:p-16 lg:p-24 relative overflow-hidden text-center md:text-left">
 
