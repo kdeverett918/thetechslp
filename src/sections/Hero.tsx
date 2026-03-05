@@ -67,7 +67,7 @@ export default function Hero() {
                 <div ref={imageRef} className="lg:col-span-5 relative h-[500px] lg:h-[650px] w-full mt-12 lg:mt-0">
                     <div className="absolute top-0 right-0 w-[90%] h-[90%] bg-[var(--color-secondary)] card-outer" />
                     <div className="absolute bottom-0 left-0 w-[90%] h-[90%] bg-[var(--color-text)] card-outer overflow-hidden">
-                        <div className="w-full h-full opacity-40 mix-blend-luminosity bg-[url('/screens_code.png')] bg-cover bg-center bg-no-repeat" />
+                        <div className="w-full h-full opacity-85 mix-blend-screen bg-[url('/brain-circuit.svg')] bg-cover bg-center bg-no-repeat" />
                     </div>
                 </div>
             </div>
