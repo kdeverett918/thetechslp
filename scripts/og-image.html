@@ -17,109 +17,91 @@
   .card {
     width: 1200px;
     height: 630px;
-    background: #1a1816;
+    background: #f5f0eb;
     position: relative;
     display: flex;
     overflow: hidden;
   }
 
-  /* Scanline overlay */
-  .scanlines {
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(255,255,255,0.008) 2px,
-      rgba(255,255,255,0.008) 4px
-    );
-    z-index: 10;
-    pointer-events: none;
-  }
-
-  /* Grid background */
+  /* Grid background — matches the site hero */
   .grid-bg {
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(208,94,65,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(208,94,65,0.06) 1px, transparent 1px);
+      linear-gradient(to right, rgba(26,24,22,0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(26,24,22,0.04) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 
-  /* Glowing orbs */
-  .orb-1 {
+  /* Sage green structural block (top-right) */
+  .block-sage {
     position: absolute;
-    top: -80px;
-    right: 120px;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(208,94,65,0.15) 0%, transparent 70%);
-    border-radius: 50%;
+    top: -20px;
+    right: -20px;
+    width: 380px;
+    height: 420px;
+    background: #8fa596;
+    border: 2px solid #2d2a26;
+    border-radius: 6px;
+    transform: rotate(2deg);
+    box-shadow: 6px 6px 0 #2d2a26;
   }
 
-  .orb-2 {
+  /* Dark structural block (overlapping) */
+  .block-dark {
     position: absolute;
-    bottom: -100px;
-    left: -60px;
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, rgba(143,165,150,0.12) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-
-  /* Geometric brutalist shapes */
-  .shape-1 {
-    position: absolute;
-    top: 40px;
-    right: 80px;
-    width: 120px;
-    height: 120px;
-    border: 2px solid rgba(208,94,65,0.25);
-    transform: rotate(12deg);
-    border-radius: 4px;
-  }
-
-  .shape-2 {
-    position: absolute;
-    bottom: 60px;
-    right: 200px;
-    width: 80px;
-    height: 80px;
-    background: rgba(143,165,150,0.12);
-    border: 2px solid rgba(143,165,150,0.2);
-    transform: rotate(-8deg);
-    border-radius: 4px;
-  }
-
-  .shape-3 {
-    position: absolute;
-    top: 200px;
+    top: 100px;
     right: 40px;
-    width: 60px;
-    height: 60px;
-    background: rgba(208,94,65,0.1);
-    border: 2px solid rgba(208,94,65,0.2);
-    transform: rotate(25deg);
-    border-radius: 4px;
+    width: 320px;
+    height: 360px;
+    background: #2d2a26;
+    border: 2px solid #2d2a26;
+    border-radius: 6px;
+    transform: rotate(-1deg);
+    box-shadow: 6px 6px 0 rgba(208,94,65,0.3);
+    overflow: hidden;
   }
 
-  /* Decorative code lines on the right */
+  /* Faux code lines inside dark block */
   .code-lines {
-    position: absolute;
-    top: 160px;
-    right: 80px;
+    padding: 28px 24px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    opacity: 0.15;
+    gap: 10px;
   }
 
   .code-line {
     height: 3px;
-    background: #d05e41;
     border-radius: 2px;
+  }
+
+  .cl-primary { background: rgba(208,94,65,0.5); }
+  .cl-sage { background: rgba(143,165,150,0.4); }
+  .cl-muted { background: rgba(245,240,235,0.1); }
+
+  /* Small geometric accents */
+  .accent-square {
+    position: absolute;
+    border: 2px solid;
+    border-radius: 3px;
+  }
+
+  .sq-1 {
+    width: 50px;
+    height: 50px;
+    top: 420px;
+    right: 380px;
+    border-color: rgba(208,94,65,0.2);
+    transform: rotate(15deg);
+  }
+
+  .sq-2 {
+    width: 35px;
+    height: 35px;
+    top: 80px;
+    right: 420px;
+    border-color: rgba(143,165,150,0.25);
+    transform: rotate(-10deg);
   }
 
   /* Left content area */
@@ -129,17 +111,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 80px 90px;
-    max-width: 780px;
+    padding: 70px 80px;
+    max-width: 720px;
   }
 
   .mono-label {
     font-family: 'Space Mono', monospace;
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #d05e41;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -148,19 +130,19 @@
   .mono-label::before {
     content: '';
     display: block;
-    width: 32px;
+    width: 28px;
     height: 2px;
     background: #d05e41;
   }
 
   .title {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 88px;
+    font-size: 86px;
     font-weight: 700;
-    color: #f5f0eb;
+    color: #1a1816;
     line-height: 0.95;
     letter-spacing: -3px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .title span {
@@ -169,47 +151,47 @@
 
   .subtitle {
     font-family: 'Space Mono', monospace;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
-    color: rgba(245,240,235,0.4);
-    letter-spacing: 5px;
+    color: #8a8580;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    margin-bottom: 44px;
+    margin-bottom: 36px;
   }
 
   /* Tech badge bar */
   .badge-row {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
   }
 
   .badge {
     font-family: 'Space Mono', monospace;
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    padding: 8px 16px;
-    border-radius: 4px;
-    border: 1.5px solid;
+    padding: 7px 14px;
+    border-radius: 3px;
+    border: 2px solid;
   }
 
   .badge-primary {
     color: #d05e41;
-    border-color: rgba(208,94,65,0.35);
-    background: rgba(208,94,65,0.08);
+    border-color: #d05e41;
+    background: rgba(208,94,65,0.06);
   }
 
   .badge-secondary {
-    color: #8fa596;
-    border-color: rgba(143,165,150,0.3);
-    background: rgba(143,165,150,0.06);
+    color: #5a7c64;
+    border-color: #8fa596;
+    background: rgba(143,165,150,0.08);
   }
 
-  .badge-neutral {
-    color: rgba(245,240,235,0.5);
-    border-color: rgba(245,240,235,0.12);
-    background: rgba(245,240,235,0.03);
+  .badge-dark {
+    color: #2d2a26;
+    border-color: #2d2a26;
+    background: rgba(45,42,38,0.04);
   }
 
   /* Bottom bar */
@@ -218,20 +200,19 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 56px;
-    background: rgba(245,240,235,0.03);
-    border-top: 1px solid rgba(245,240,235,0.06);
+    height: 52px;
+    background: #2d2a26;
     display: flex;
     align-items: center;
-    padding: 0 90px;
-    gap: 20px;
-    z-index: 5;
+    padding: 0 80px;
+    gap: 16px;
+    z-index: 10;
   }
 
   .bottom-bar span {
     font-family: 'Space Mono', monospace;
     font-size: 12px;
-    color: rgba(245,240,235,0.35);
+    color: #f5f0eb;
     letter-spacing: 1.5px;
     text-transform: uppercase;
   }
@@ -251,62 +232,41 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #d05e41, #e07a5f 40%, rgba(143,165,150,0.6) 100%);
+    background: linear-gradient(90deg, #d05e41, #e07a5f 50%, #8fa596 100%);
     z-index: 20;
   }
-
-  /* Top-right corner terminal decoration */
-  .terminal-dots {
-    position: absolute;
-    top: 36px;
-    left: 90px;
-    display: flex;
-    gap: 8px;
-    z-index: 5;
-  }
-
-  .terminal-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 1.5px solid;
-  }
-
-  .td-red { border-color: rgba(208,94,65,0.5); background: rgba(208,94,65,0.15); }
-  .td-yellow { border-color: rgba(212,168,83,0.4); background: rgba(212,168,83,0.1); }
-  .td-green { border-color: rgba(143,165,150,0.5); background: rgba(143,165,150,0.15); }
 </style>
 </head>
 <body>
   <div class="card">
     <div class="grid-bg"></div>
-    <div class="scanlines"></div>
-    <div class="orb-1"></div>
-    <div class="orb-2"></div>
-    <div class="shape-1"></div>
-    <div class="shape-2"></div>
-    <div class="shape-3"></div>
 
-    <!-- Decorative code lines -->
-    <div class="code-lines">
-      <div class="code-line" style="width: 180px;"></div>
-      <div class="code-line" style="width: 120px; opacity: 0.7;"></div>
-      <div class="code-line" style="width: 200px;"></div>
-      <div class="code-line" style="width: 90px; opacity: 0.5;"></div>
-      <div class="code-line" style="width: 160px; opacity: 0.8;"></div>
-      <div class="code-line" style="width: 140px; opacity: 0.6;"></div>
-      <div class="code-line" style="width: 100px; opacity: 0.4;"></div>
-      <div class="code-line" style="width: 220px;"></div>
-      <div class="code-line" style="width: 80px; opacity: 0.5;"></div>
-      <div class="code-line" style="width: 170px; opacity: 0.7;"></div>
+    <!-- Structural blocks (like the hero image area) -->
+    <div class="block-sage"></div>
+    <div class="block-dark">
+      <div class="code-lines">
+        <div class="code-line cl-primary" style="width: 140px;"></div>
+        <div class="code-line cl-muted" style="width: 200px;"></div>
+        <div class="code-line cl-sage" style="width: 100px;"></div>
+        <div class="code-line cl-muted" style="width: 170px;"></div>
+        <div class="code-line cl-primary" style="width: 80px;"></div>
+        <div class="code-line cl-muted" style="width: 220px;"></div>
+        <div class="code-line cl-sage" style="width: 130px;"></div>
+        <div class="code-line cl-muted" style="width: 160px;"></div>
+        <div class="code-line cl-primary" style="width: 110px;"></div>
+        <div class="code-line cl-muted" style="width: 190px;"></div>
+        <div class="code-line cl-sage" style="width: 70px;"></div>
+        <div class="code-line cl-muted" style="width: 150px;"></div>
+        <div class="code-line cl-primary" style="width: 180px;"></div>
+        <div class="code-line cl-muted" style="width: 120px;"></div>
+        <div class="code-line cl-sage" style="width: 200px;"></div>
+        <div class="code-line cl-muted" style="width: 90px;"></div>
+      </div>
     </div>
 
-    <!-- Terminal window dots -->
-    <div class="terminal-dots">
-      <div class="terminal-dot td-red"></div>
-      <div class="terminal-dot td-yellow"></div>
-      <div class="terminal-dot td-green"></div>
-    </div>
+    <!-- Small accent squares -->
+    <div class="accent-square sq-1"></div>
+    <div class="accent-square sq-2"></div>
 
     <div class="content">
       <div class="mono-label">Clinical Technology Studio</div>
@@ -315,7 +275,7 @@
       <div class="badge-row">
         <div class="badge badge-primary">React + TypeScript</div>
         <div class="badge badge-secondary">Clinical UX</div>
-        <div class="badge badge-neutral">AI Integration</div>
+        <div class="badge badge-dark">AI Integration</div>
         <div class="badge badge-primary">HIPAA-Ready</div>
       </div>
     </div>
