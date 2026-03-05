@@ -11,7 +11,7 @@
     width: 1200px;
     height: 630px;
     overflow: hidden;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'DM Sans', sans-serif;
   }
 
   .card {
@@ -19,56 +19,188 @@
     height: 630px;
     background: #f5f0eb;
     position: relative;
-    display: flex;
     overflow: hidden;
+    display: flex;
   }
 
-  /* Grid background — matches the site hero */
-  .grid-bg {
+  /* ── Left column ── */
+  .left {
+    width: 55%;
+    padding: 52px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+  }
+
+  .left::before {
+    content: '';
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(to right, rgba(26,24,22,0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(26,24,22,0.04) 1px, transparent 1px);
+      linear-gradient(to right, rgba(26,24,22,0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(26,24,22,0.03) 1px, transparent 1px);
     background-size: 40px 40px;
+    pointer-events: none;
   }
 
-  /* Sage green structural block (top-right) */
-  .block-sage {
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 380px;
-    height: 420px;
-    background: #8fa596;
-    border: 2px solid #2d2a26;
-    border-radius: 6px;
-    transform: rotate(2deg);
-    box-shadow: 6px 6px 0 #2d2a26;
+  .mono-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #d05e41;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
   }
 
-  /* Dark structural block (overlapping) */
-  .block-dark {
-    position: absolute;
-    top: 100px;
-    right: 40px;
-    width: 320px;
-    height: 360px;
+  .mono-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #d05e41;
+  }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 72px;
+    line-height: 0.93;
+    font-weight: 700;
+    color: #2d2a26;
+    letter-spacing: -3px;
+    margin-bottom: 16px;
+  }
+
+  h1 span {
+    color: #d05e41;
+  }
+
+  .sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    color: #6b665c;
+    line-height: 1.55;
+    max-width: 400px;
+    margin-bottom: 28px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 3px;
+    border: 2px solid;
+  }
+
+  .tag-terra {
+    color: #d05e41;
+    border-color: #d05e41;
+    background: rgba(208,94,65,0.06);
+  }
+
+  .tag-sage {
+    color: #5a7c64;
+    border-color: #8fa596;
+    background: rgba(143,165,150,0.08);
+  }
+
+  .tag-dark {
+    color: #2d2a26;
+    border-color: #2d2a26;
+    background: rgba(45,42,38,0.04);
+  }
+
+  .bottom-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #8a8580;
+  }
+
+  .bottom-dot {
+    width: 4px;
+    height: 4px;
+    background: #d05e41;
+    border-radius: 50%;
+  }
+
+  /* ── Right column ── */
+  .right {
+    width: 45%;
+    position: relative;
     background: #2d2a26;
-    border: 2px solid #2d2a26;
-    border-radius: 6px;
-    transform: rotate(-1deg);
-    box-shadow: 6px 6px 0 rgba(208,94,65,0.3);
     overflow: hidden;
   }
 
-  /* Faux code lines inside dark block */
-  .code-lines {
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(143,165,150,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(143,165,150,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .glow {
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    background: radial-gradient(circle, rgba(208,94,65,0.15) 0%, transparent 70%);
+    top: 45%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
+
+  /* Code block visual */
+  .code-block {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 100px;
+    background: rgba(245,240,235,0.03);
+    border: 1px solid rgba(143,165,150,0.12);
+    border-radius: 8px;
     padding: 28px 24px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    z-index: 2;
   }
+
+  /* Window dots */
+  .window-dots {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .window-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .dot-red { background: #d05e41; }
+  .dot-sage { background: #8fa596; }
+  .dot-muted { background: rgba(245,240,235,0.15); }
 
   .code-line {
     height: 3px;
@@ -77,218 +209,167 @@
 
   .cl-primary { background: rgba(208,94,65,0.5); }
   .cl-sage { background: rgba(143,165,150,0.4); }
-  .cl-muted { background: rgba(245,240,235,0.1); }
+  .cl-muted { background: rgba(245,240,235,0.07); }
 
-  /* Small geometric accents */
-  .accent-square {
-    position: absolute;
-    border: 2px solid;
-    border-radius: 3px;
-  }
-
-  .sq-1 {
-    width: 50px;
-    height: 50px;
-    top: 420px;
-    right: 380px;
-    border-color: rgba(208,94,65,0.2);
-    transform: rotate(15deg);
-  }
-
-  .sq-2 {
-    width: 35px;
-    height: 35px;
-    top: 80px;
-    right: 420px;
-    border-color: rgba(143,165,150,0.25);
-    transform: rotate(-10deg);
-  }
-
-  /* Left content area */
-  .content {
-    position: relative;
-    z-index: 5;
+  /* Indent groups */
+  .code-group {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 70px 80px;
-    max-width: 720px;
+    gap: 10px;
   }
 
-  .mono-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #d05e41;
-    margin-bottom: 20px;
+  .code-indent {
+    padding-left: 20px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Sage block accent peeking from behind */
+  .sage-accent {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 180px;
+    height: 200px;
+    background: #8fa596;
+    border-radius: 6px;
+    opacity: 0.15;
+    transform: rotate(3deg);
+  }
+
+  /* Bottom stat modules */
+  .stats {
+    position: absolute;
+    bottom: 32px;
+    left: 40px;
+    right: 40px;
+    display: flex;
     gap: 12px;
+    z-index: 2;
   }
 
-  .mono-label::before {
-    content: '';
-    display: block;
-    width: 28px;
-    height: 2px;
-    background: #d05e41;
+  .stat {
+    flex: 1;
+    background: rgba(245,240,235,0.04);
+    border: 1px solid rgba(143,165,150,0.12);
+    border-radius: 6px;
+    padding: 12px 14px;
+    text-align: center;
   }
 
-  .title {
+  .stat-num {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 86px;
+    font-size: 20px;
     font-weight: 700;
-    color: #1a1816;
-    line-height: 0.95;
-    letter-spacing: -3px;
-    margin-bottom: 6px;
-  }
-
-  .title span {
     color: #d05e41;
+    margin-bottom: 2px;
   }
 
-  .subtitle {
+  .stat-label {
     font-family: 'Space Mono', monospace;
-    font-size: 14px;
-    font-weight: 400;
-    color: #8a8580;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 36px;
-  }
-
-  /* Tech badge bar */
-  .badge-row {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .badge {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
+    font-size: 8px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    padding: 7px 14px;
-    border-radius: 3px;
-    border: 2px solid;
+    color: rgba(245,240,235,0.4);
   }
 
-  .badge-primary {
-    color: #d05e41;
-    border-color: #d05e41;
-    background: rgba(208,94,65,0.06);
-  }
-
-  .badge-secondary {
-    color: #5a7c64;
-    border-color: #8fa596;
-    background: rgba(143,165,150,0.08);
-  }
-
-  .badge-dark {
-    color: #2d2a26;
-    border-color: #2d2a26;
-    background: rgba(45,42,38,0.04);
-  }
-
-  /* Bottom bar */
-  .bottom-bar {
+  /* Accent lines */
+  .top-line {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     right: 0;
-    height: 52px;
-    background: #2d2a26;
-    display: flex;
-    align-items: center;
-    padding: 0 80px;
-    gap: 16px;
+    height: 3px;
+    background: linear-gradient(90deg, #d05e41, #e07a5f 50%, #8fa596 100%);
     z-index: 10;
   }
 
-  .bottom-bar span {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    color: #f5f0eb;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
-
-  .bottom-bar .sep {
-    width: 4px;
-    height: 4px;
-    background: #d05e41;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  /* Terracotta accent line at very bottom */
-  .accent-line {
+  .bottom-line {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #d05e41, #e07a5f 50%, #8fa596 100%);
-    z-index: 20;
+    background: linear-gradient(90deg, #8fa596, #d05e41 100%);
+    z-index: 10;
   }
 </style>
 </head>
 <body>
-  <div class="card">
-    <div class="grid-bg"></div>
+<div class="card">
+  <div class="top-line"></div>
+  <div class="bottom-line"></div>
 
-    <!-- Structural blocks (like the hero image area) -->
-    <div class="block-sage"></div>
-    <div class="block-dark">
-      <div class="code-lines">
-        <div class="code-line cl-primary" style="width: 140px;"></div>
-        <div class="code-line cl-muted" style="width: 200px;"></div>
-        <div class="code-line cl-sage" style="width: 100px;"></div>
-        <div class="code-line cl-muted" style="width: 170px;"></div>
-        <div class="code-line cl-primary" style="width: 80px;"></div>
-        <div class="code-line cl-muted" style="width: 220px;"></div>
-        <div class="code-line cl-sage" style="width: 130px;"></div>
-        <div class="code-line cl-muted" style="width: 160px;"></div>
-        <div class="code-line cl-primary" style="width: 110px;"></div>
-        <div class="code-line cl-muted" style="width: 190px;"></div>
-        <div class="code-line cl-sage" style="width: 70px;"></div>
-        <div class="code-line cl-muted" style="width: 150px;"></div>
-        <div class="code-line cl-primary" style="width: 180px;"></div>
-        <div class="code-line cl-muted" style="width: 120px;"></div>
-        <div class="code-line cl-sage" style="width: 200px;"></div>
-        <div class="code-line cl-muted" style="width: 90px;"></div>
-      </div>
-    </div>
-
-    <!-- Small accent squares -->
-    <div class="accent-square sq-1"></div>
-    <div class="accent-square sq-2"></div>
-
-    <div class="content">
+  <!-- LEFT -->
+  <div class="left">
+    <div>
       <div class="mono-label">Clinical Technology Studio</div>
-      <div class="title">The Tech<br><span>SLP</span></div>
-      <div class="subtitle">Build &middot; Ship &middot; Heal</div>
-      <div class="badge-row">
-        <div class="badge badge-primary">React + TypeScript</div>
-        <div class="badge badge-secondary">Clinical UX</div>
-        <div class="badge badge-dark">AI Integration</div>
-        <div class="badge badge-primary">HIPAA-Ready</div>
+      <h1>The Tech<br><span>SLP</span></h1>
+      <p class="sub">Where clinical expertise meets modern technology. Tools, resources, and software built by a clinician.</p>
+      <div class="tags">
+        <span class="tag tag-terra">React + TypeScript</span>
+        <span class="tag tag-sage">Clinical UX</span>
+        <span class="tag tag-dark">AI Integration</span>
+        <span class="tag tag-terra">HIPAA-Ready</span>
+      </div>
+    </div>
+    <div class="bottom-row">
+      <span>thetechslp.com</span>
+      <div class="bottom-dot"></div>
+      <span>Kristine Deverett, CCC-SLP</span>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <div class="grid-overlay"></div>
+    <div class="glow"></div>
+    <div class="sage-accent"></div>
+
+    <div class="code-block">
+      <div class="window-dots">
+        <span class="dot-red"></span>
+        <span class="dot-sage"></span>
+        <span class="dot-muted"></span>
+      </div>
+      <div class="code-group">
+        <div class="code-line cl-primary" style="width: 140px;"></div>
+        <div class="code-indent">
+          <div class="code-line cl-muted" style="width: 200px;"></div>
+          <div class="code-line cl-sage" style="width: 120px;"></div>
+          <div class="code-line cl-muted" style="width: 170px;"></div>
+        </div>
+        <div class="code-line cl-primary" style="width: 100px;"></div>
+        <div class="code-indent">
+          <div class="code-line cl-muted" style="width: 240px;"></div>
+          <div class="code-line cl-sage" style="width: 80px;"></div>
+          <div class="code-line cl-muted" style="width: 160px;"></div>
+          <div class="code-line cl-primary" style="width: 130px;"></div>
+        </div>
+        <div class="code-line cl-sage" style="width: 110px;"></div>
+        <div class="code-indent">
+          <div class="code-line cl-muted" style="width: 190px;"></div>
+          <div class="code-line cl-muted" style="width: 150px;"></div>
+        </div>
       </div>
     </div>
 
-    <div class="bottom-bar">
-      <span>thetechslp.com</span>
-      <div class="sep"></div>
-      <span>Kristine Deverett, CCC-SLP</span>
-      <div class="sep"></div>
-      <span>Seattle, WA</span>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">40+</div>
+        <div class="stat-label">Prompts</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">11+</div>
+        <div class="stat-label">Domains</div>
+      </div>
     </div>
-
-    <div class="accent-line"></div>
   </div>
+</div>
 </body>
 </html>
