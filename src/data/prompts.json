@@ -5,7 +5,8 @@
     "title": "Diet Recommendation Rationale",
     "description": "Generate an evidence-based rationale for diet texture modifications based on instrumental assessment findings.",
     "prompt": "You are an ASHA-certified speech-language pathologist specializing in dysphagia management. Given the following instrumental assessment results (MBS or FEES), generate a clear, evidence-based rationale for the recommended diet texture modification using the IDDSI framework.\n\nInclude:\n1. Summary of key swallowing physiology findings\n2. Specific aspiration/penetration risks identified\n3. IDDSI level recommendation with justification\n4. Relevant research citations supporting the recommendation\n5. Compensatory strategies to pair with the diet level\n\nAssessment Results:\n[Paste MBS/FEES findings here]\n\nCurrent Diet:\n[Paste current diet level]\n\nFormat the response as a clinical rationale suitable for inclusion in a medical chart note.",
-    "tags": ["IDDSI", "MBS", "FEES", "diet modification", "instrumental assessment"]
+    "tags": ["IDDSI", "MBS", "FEES", "diet modification", "instrumental assessment"],
+    "level": "beginner"
   },
   {
     "id": "dysphagia-patient-education",
@@ -13,7 +14,8 @@
     "title": "Patient & Family Education Materials",
     "description": "Create accessible education materials explaining swallowing disorders and safety strategies.",
     "prompt": "You are an ASHA-certified speech-language pathologist creating patient education materials about dysphagia. Generate clear, jargon-free educational content for a patient and their family/caregivers.\n\nInclude:\n1. Simple explanation of the swallowing difficulty using analogies\n2. Why the recommended diet texture is important for safety\n3. Step-by-step safe swallowing strategies (written at a 6th-grade reading level)\n4. Red flags to watch for and when to seek immediate help\n5. Tips for making mealtimes enjoyable despite restrictions\n\nDiagnosis: [Specify swallowing diagnosis]\nIDDSI Level: [Specify recommended level]\nKey Strategies: [List compensatory strategies]\n\nFormat with headers, bullet points, and bold key terms. Keep language warm and encouraging.",
-    "tags": ["patient education", "caregiver training", "IDDSI", "safety strategies"]
+    "tags": ["patient education", "caregiver training", "IDDSI", "safety strategies"],
+    "level": "beginner"
   },
   {
     "id": "dysphagia-treatment-plan",
@@ -21,7 +23,8 @@
     "title": "Dysphagia Treatment Plan Generator",
     "description": "Draft a comprehensive dysphagia treatment plan with measurable goals and evidence-based interventions.",
     "prompt": "You are an ASHA-certified speech-language pathologist specializing in adult dysphagia rehabilitation. Generate a comprehensive treatment plan based on the assessment findings provided.\n\nInclude:\n1. Long-term functional goal (6-month timeframe)\n2. Three short-term measurable objectives (SMART format)\n3. Evidence-based treatment approaches with specific exercises\n4. Frequency and duration recommendations\n5. Outcome measures to track progress\n6. Criteria for reassessment or discharge\n\nAssessment Summary: [Paste assessment findings]\nPatient Profile: [Age, medical history, current status]\nCurrent Functional Level: [Describe current swallowing function]\n\nEnsure goals follow ASHA documentation standards and reference current evidence.",
-    "tags": ["treatment planning", "SMART goals", "rehabilitation", "evidence-based"]
+    "tags": ["treatment planning", "SMART goals", "rehabilitation", "evidence-based"],
+    "level": "beginner"
   },
   {
     "id": "voice-assessment-report",
@@ -29,7 +32,8 @@
     "title": "Voice Assessment Report",
     "description": "Structure a comprehensive voice evaluation report from assessment data.",
     "prompt": "You are an ASHA-certified speech-language pathologist specializing in voice disorders. Generate a comprehensive voice evaluation report based on the provided assessment data.\n\nInclude these sections:\n1. Reason for Referral\n2. Case History Summary (relevant medical, surgical, vocal use history)\n3. Perceptual Voice Assessment (CAPE-V or GRBAS ratings)\n4. Acoustic Analysis (F0, jitter, shimmer, HNR interpretation)\n5. Aerodynamic Measures (MPT, s/z ratio interpretation)\n6. Laryngeal Imaging Findings (if available)\n7. Clinical Impressions and Differential Diagnosis\n8. Recommendations (therapy, referrals, vocal hygiene)\n\nAssessment Data:\n[Paste perceptual, acoustic, and aerodynamic measures]\n\nPatient Profile:\n[Age, gender, occupation, vocal demands]\n\nFormat as a professional clinical report suitable for medical records.",
-    "tags": ["CAPE-V", "acoustic analysis", "laryngoscopy", "evaluation"]
+    "tags": ["CAPE-V", "acoustic analysis", "laryngoscopy", "evaluation"],
+    "level": "beginner"
   },
   {
     "id": "voice-hygiene-program",
@@ -37,7 +41,8 @@
     "title": "Vocal Hygiene Program",
     "description": "Create a personalized vocal hygiene education program based on patient-specific risk factors.",
     "prompt": "You are an ASHA-certified speech-language pathologist specializing in voice therapy. Create a personalized vocal hygiene program for a patient with the following profile.\n\nInclude:\n1. Education about their specific vocal pathology in accessible language\n2. Identification of their personal vocal risk factors and abusive behaviors\n3. Specific, actionable hydration recommendations\n4. Environmental modifications for their workplace/lifestyle\n5. Voice conservation strategies tailored to their vocal demands\n6. Daily voice care routine (morning, workday, evening)\n7. Self-monitoring checklist they can use independently\n\nPatient Profile:\n[Age, occupation, vocal demands, diagnosis]\n\nVocal Behaviors to Address:\n[List identified abusive/misuse patterns]\n\nMake the program practical and realistic for their daily life. Use encouraging, non-judgmental language.",
-    "tags": ["vocal hygiene", "voice therapy", "patient education", "prevention"]
+    "tags": ["vocal hygiene", "voice therapy", "patient education", "prevention"],
+    "level": "beginner"
   },
   {
     "id": "aphasia-functional-goals",
@@ -45,7 +50,8 @@
     "title": "Functional Communication Goals",
     "description": "Generate person-centered, functional communication goals for aphasia therapy based on the Life Participation Approach.",
     "prompt": "You are an ASHA-certified speech-language pathologist specializing in aphasia rehabilitation using the Life Participation Approach to Aphasia (LPAA). Generate person-centered, functional communication goals.\n\nInclude:\n1. Three long-term participation-based goals tied to the patient's life priorities\n2. Six short-term objectives (2 per long-term goal) in measurable format\n3. Specific treatment activities aligned with each objective\n4. Communication partner training recommendations\n5. Supported communication strategies (AAC, written choice, drawing)\n6. Functional outcome measures beyond standardized tests\n\nPatient Profile:\n[Age, aphasia type and severity, time post-onset]\n\nLife Priorities:\n[What activities, roles, and relationships matter most to this person]\n\nCurrent Communication Profile:\n[Strengths and challenges across modalities]\n\nEnsure goals reflect what matters to the patient, not just impairment-level targets.",
-    "tags": ["LPAA", "functional goals", "person-centered", "AAC", "SMART goals"]
+    "tags": ["LPAA", "functional goals", "person-centered", "AAC", "SMART goals"],
+    "level": "beginner"
   },
   {
     "id": "aphasia-progress-note",
@@ -53,7 +59,8 @@
     "title": "Aphasia Therapy Progress Note",
     "description": "Draft a detailed therapy progress note documenting session activities, patient response, and data.",
     "prompt": "You are an ASHA-certified speech-language pathologist documenting an aphasia therapy session. Generate a detailed progress note in SOAP format.\n\nInclude:\n1. Subjective: Patient/caregiver report, mood, engagement level\n2. Objective: Specific activities, cueing hierarchy used, accuracy data (%), response to treatment techniques\n3. Assessment: Clinical interpretation of session data, progress toward goals, comparison to baseline\n4. Plan: Next session focus, modifications to approach, home practice assignments\n\nSession Details:\n[Date, session number, duration]\n\nGoals Addressed:\n[List goals targeted this session]\n\nActivities & Data:\n[Describe what you did and the patient's performance]\n\nFormat professionally for medical record documentation. Include specific percentages and cueing levels.",
-    "tags": ["SOAP note", "documentation", "progress note", "data tracking"]
+    "tags": ["SOAP note", "documentation", "progress note", "data tracking"],
+    "level": "beginner"
   },
   {
     "id": "motor-speech-differential",
@@ -61,7 +68,8 @@
     "title": "Motor Speech Differential Diagnosis",
     "description": "Guide differential diagnosis between dysarthria types and apraxia of speech based on clinical features.",
     "prompt": "You are an ASHA-certified speech-language pathologist with expertise in motor speech disorders. Assist with differential diagnosis based on the observed speech characteristics.\n\nAnalyze the following clinical observations and provide:\n1. Most likely motor speech diagnosis with confidence level\n2. Supporting evidence from the clinical features described\n3. Features that differentiate from other motor speech disorders\n4. Recommended additional assessment tasks to confirm diagnosis\n5. Expected neurological correlates and referral recommendations\n6. Key references from Duffy's Motor Speech Disorders\n\nObserved Speech Characteristics:\n[Describe articulation, rate, prosody, voice quality, resonance, respiration patterns]\n\nNonspeech Oral Motor Findings:\n[Describe cranial nerve exam findings]\n\nMedical History:\n[Relevant neurological history]\n\nPresent the differential diagnosis in a structured clinical format.",
-    "tags": ["dysarthria", "apraxia", "differential diagnosis", "assessment"]
+    "tags": ["dysarthria", "apraxia", "differential diagnosis", "assessment"],
+    "level": "advanced"
   },
   {
     "id": "motor-speech-treatment",
@@ -69,7 +77,8 @@
     "title": "Motor Speech Treatment Protocol",
     "description": "Design an evidence-based treatment protocol for dysarthria or apraxia of speech.",
     "prompt": "You are an ASHA-certified speech-language pathologist specializing in motor speech disorders. Design a structured treatment protocol based on the diagnosis and severity provided.\n\nInclude:\n1. Treatment approach selection with evidence-based rationale (e.g., LSVT LOUD, SPT, PROMPT, rate control)\n2. Hierarchy of treatment targets from simple to complex\n3. Session structure with warm-up, drill, and functional practice components\n4. Specific stimuli and materials for each treatment level\n5. Measurable criteria for advancing through the hierarchy\n6. Home practice program with clear instructions\n7. Expected treatment timeline and prognosis considerations\n\nDiagnosis: [Motor speech diagnosis and type]\nSeverity: [Mild/moderate/severe]\nPatient Profile: [Age, etiology, time post-onset, communication needs]\nCurrent Intelligibility: [Describe in known vs. unknown listeners]\n\nBase recommendations on current best evidence for the specific diagnosis.",
-    "tags": ["treatment protocol", "dysarthria", "apraxia", "LSVT", "evidence-based"]
+    "tags": ["treatment protocol", "dysarthria", "apraxia", "LSVT", "evidence-based"],
+    "level": "beginner"
   },
   {
     "id": "fluency-assessment-summary",
@@ -77,7 +86,8 @@
     "title": "Fluency Assessment Summary",
     "description": "Summarize stuttering assessment results including frequency, type, severity, and impact measures.",
     "prompt": "You are an ASHA-certified speech-language pathologist specializing in fluency disorders. Generate a comprehensive assessment summary from the evaluation data provided.\n\nInclude:\n1. Disfluency Analysis: Types (blocks, repetitions, prolongations), frequency (%SS), and distribution\n2. Severity Rating: Using the SSI-4 or comparable measure with interpretation\n3. Secondary Behaviors: Observed concomitant physical behaviors\n4. Attitudinal/Emotional Assessment: Results from OASES, CAT, or comparable measure\n5. Variability Across Contexts: How stuttering changes with audience, task, and setting\n6. Strengths and Protective Factors\n7. Clinical Impressions: Overall severity, impact on participation, and prognostic factors\n8. Recommendations: Treatment approach, frequency, and counseling needs\n\nAssessment Data:\n[Paste speech sample analysis, questionnaire scores, observations]\n\nClient Profile:\n[Age, onset, family history, previous treatment, client's own goals]\n\nFormat as a professional clinical report.",
-    "tags": ["stuttering", "SSI-4", "OASES", "assessment", "severity"]
+    "tags": ["stuttering", "SSI-4", "OASES", "assessment", "severity"],
+    "level": "beginner"
   },
   {
     "id": "fluency-counseling-framework",
@@ -85,7 +95,8 @@
     "title": "Fluency Counseling Dialogue",
     "description": "Generate evidence-based counseling talking points for discussing stuttering with clients and families.",
     "prompt": "You are an ASHA-certified speech-language pathologist who uses an integrated approach to stuttering therapy combining speech modification, stuttering modification, and counseling. Generate a counseling framework for the following situation.\n\nInclude:\n1. Opening: Validating the client's/family's experience and emotions\n2. Education: Key messages about stuttering (neurology, variability, myths to dispel)\n3. Reframing: Shifting perspective from 'fixing' to empowerment and effective communication\n4. Specific talking points for their concerns\n5. Discussion of treatment options and collaborative goal-setting\n6. Resources and support groups to recommend\n7. Follow-up conversation starters for future sessions\n\nClient Situation:\n[Age, stuttering history, current concerns]\n\nSpecific Concerns to Address:\n[What the client/family is worried about or asking]\n\nUse warm, empathetic, empowering language. Avoid deficit-focused framing.",
-    "tags": ["counseling", "stuttering", "family education", "empowerment"]
+    "tags": ["counseling", "stuttering", "family education", "empowerment"],
+    "level": "beginner"
   },
   {
     "id": "peds-artic-analysis",
@@ -93,7 +104,8 @@
     "title": "Articulation Error Pattern Analysis",
     "description": "Analyze a child's speech sample to identify phonological processes and plan treatment targets.",
     "prompt": "You are an ASHA-certified speech-language pathologist specializing in pediatric articulation and phonological disorders. Analyze the following speech data and provide a comprehensive error pattern analysis.\n\nInclude:\n1. Phonetic Inventory: Sounds present in initial, medial, final positions\n2. Phonological Process Analysis: Active processes with examples from the sample\n3. Comparison to developmental norms: Which patterns are age-appropriate vs. delayed\n4. Stimulability results and implications for target selection\n5. Intelligibility estimate in connected speech\n6. Recommended treatment targets using evidence-based selection criteria (e.g., complexity approach, cycles)\n7. Prioritized target sequence with rationale\n\nChild's Age: [Age in years;months]\nSpeech Sample Data:\n[Paste transcription or error summary]\n\nStimulability Results:\n[List sounds stimulable in isolation, syllables, words]\n\nBase target selection on current research in phonological intervention.",
-    "tags": ["articulation", "phonology", "pediatric", "treatment targets", "complexity approach"]
+    "tags": ["articulation", "phonology", "pediatric", "treatment targets", "complexity approach"],
+    "level": "beginner"
   },
   {
     "id": "peds-language-activities",
@@ -101,7 +113,8 @@
     "title": "Language Therapy Activity Generator",
     "description": "Generate creative, evidence-based therapy activities targeting specific language goals for children.",
     "prompt": "You are an ASHA-certified speech-language pathologist specializing in pediatric language intervention. Generate engaging, evidence-based therapy activities for the following language targets.\n\nFor each activity, include:\n1. Activity name and brief description\n2. Target skill and goal alignment\n3. Materials needed\n4. Step-by-step procedure\n5. Scaffolding/cueing hierarchy (maximum to minimum support)\n6. Data collection method\n7. Modifications for easier and harder versions\n8. Home practice adaptation for caregivers\n\nGenerate 3 activities for each target listed.\n\nChild's Profile:\n[Age, diagnosis, interests, current language level]\n\nLanguage Targets:\n[List specific goals, e.g., 'use regular past tense -ed in sentences']\n\nMake activities play-based, motivating, and grounded in naturalistic intervention principles.",
-    "tags": ["language therapy", "pediatric", "activities", "play-based", "scaffolding"]
+    "tags": ["language therapy", "pediatric", "activities", "play-based", "scaffolding"],
+    "level": "beginner"
   },
   {
     "id": "peds-parent-coaching",
@@ -109,7 +122,17 @@
     "title": "Parent Coaching Session Plan",
     "description": "Structure a parent coaching session with strategies for language facilitation in daily routines.",
     "prompt": "You are an ASHA-certified speech-language pathologist trained in caregiver coaching models (e.g., Hanen, LENA, coaching in natural environments). Plan a parent coaching session focused on embedding language facilitation strategies into daily routines.\n\nInclude:\n1. Review: Check-in on parent's experience with previous strategies\n2. Teaching: One new evidence-based strategy with rationale (keep it simple)\n3. Demonstration: How you will model the strategy during the session\n4. Guided Practice: How the parent will practice with your coaching\n5. Reflection: Questions to help the parent self-evaluate\n6. Routine Integration: Specific daily routines to embed the strategy (meals, bath, play, car rides)\n7. Written takeaway: Simple handout content summarizing the strategy\n\nChild's Profile:\n[Age, current language level, diagnosis if applicable]\n\nTarget Strategy:\n[e.g., 'parallel talk during play', 'expansion of two-word phrases', 'wait time']\n\nFamily Context:\n[Relevant family factors, daily routine, language environment]\n\nUse strengths-based, non-judgmental language throughout.",
-    "tags": ["parent coaching", "caregiver training", "Hanen", "early intervention", "naturalistic"]
+    "tags": ["parent coaching", "caregiver training", "Hanen", "early intervention", "naturalistic"],
+    "level": "beginner"
+  },
+  {
+    "id": "peds-iep-goal-writer",
+    "category": "Pediatric Speech-Language",
+    "title": "IEP Goal Writer",
+    "description": "Generate measurable, standards-aligned IEP goals for speech-language services in school settings.",
+    "prompt": "You are an ASHA-certified speech-language pathologist working in a school-based setting. Generate measurable IEP goals and objectives based on the student's evaluation data and educational needs.\n\nInclude:\n1. Annual Goal: Measurable, functional, and tied to educational access\n2. Three short-term objectives with specific criteria (accuracy %, number of trials, level of cueing)\n3. Baseline data summary for each goal area\n4. Measurement procedures and data collection methods\n5. Service delivery model recommendation (pull-out, push-in, consultation) with rationale\n6. Classroom accommodations and modifications to support the goals\n7. Progress reporting schedule and method\n\nStudent Profile:\n[Age, grade, eligibility category, current services]\n\nEvaluation Summary:\n[Key assessment results, areas of need]\n\nTeacher/Parent Concerns:\n[Functional communication challenges observed in the classroom and home]\n\nCurriculum Standards:\n[Grade-level expectations the student is working toward]\n\nEnsure goals are educationally relevant, measurable, and aligned with state standards. Use IDEA-compliant language.",
+    "tags": ["IEP", "school-based", "goals", "special education", "IDEA"],
+    "level": "beginner"
   },
   {
     "id": "cog-comm-assessment",
@@ -117,7 +140,8 @@
     "title": "Cognitive-Communication Assessment Plan",
     "description": "Design a comprehensive assessment battery for cognitive-communication disorders following TBI or stroke.",
     "prompt": "You are an ASHA-certified speech-language pathologist specializing in cognitive-communication disorders. Design a comprehensive assessment plan for the following patient.\n\nInclude:\n1. Recommended standardized assessments with rationale for each\n2. Informal assessment tasks targeting specific cognitive-linguistic domains\n3. Functional communication assessment approach (observation, interview, rating scales)\n4. Assessment of executive function impacts on communication\n5. Assessment of discourse-level communication\n6. Caregiver/family interview questions\n7. Estimated assessment timeline\n8. Considerations for test validity given the patient's profile\n\nPatient Profile:\n[Age, diagnosis, time post-onset, premorbid function, current complaints]\n\nReferral Concerns:\n[Specific communication difficulties reported]\n\nMedical Considerations:\n[Medications, fatigue, vision/hearing, comorbidities that may affect testing]\n\nJustify test selections based on the patient's specific presentation and evidence base.",
-    "tags": ["TBI", "cognitive-communication", "assessment", "executive function", "discourse"]
+    "tags": ["TBI", "cognitive-communication", "assessment", "executive function", "discourse"],
+    "level": "advanced"
   },
   {
     "id": "cog-comm-strategies",
@@ -125,7 +149,8 @@
     "title": "Compensatory Strategy Training Plan",
     "description": "Develop a personalized compensatory strategy training program for cognitive-communication deficits.",
     "prompt": "You are an ASHA-certified speech-language pathologist specializing in cognitive-communication rehabilitation. Develop a compensatory strategy training program for the following patient.\n\nInclude:\n1. Priority cognitive-communication deficits to address based on functional impact\n2. Three internal strategies with teaching protocols (e.g., self-cueing, chunking, association)\n3. Three external compensatory strategies with setup instructions (e.g., calendar systems, checklists, apps)\n4. Strategy training hierarchy: awareness → acquisition → application → adaptation\n5. Specific functional scenarios for practice (work, social, daily living)\n6. Self-monitoring tools and error awareness training\n7. Generalization plan for moving strategies from clinic to real life\n8. Family/partner training for supporting strategy use\n\nPatient Profile:\n[Age, diagnosis, time post-onset, functional goals]\n\nKey Deficits:\n[Attention, memory, executive function, social communication specifics]\n\nReturn-to-Work/Life Goals:\n[What activities and roles the patient wants to resume]\n\nMake strategies practical and integrated into their actual daily routines.",
-    "tags": ["compensatory strategies", "TBI", "rehabilitation", "executive function", "generalization"]
+    "tags": ["compensatory strategies", "TBI", "rehabilitation", "executive function", "generalization"],
+    "level": "beginner"
   },
   {
     "id": "doc-evaluation-report",
@@ -133,7 +158,8 @@
     "title": "Evaluation Report Template",
     "description": "Generate a structured evaluation report from assessment findings across any communication disorder.",
     "prompt": "You are an ASHA-certified speech-language pathologist writing a comprehensive evaluation report. Generate a professional report from the following assessment data.\n\nInclude these sections:\n1. Identifying Information and Referral Source\n2. Relevant History (medical, developmental, educational, social)\n3. Assessment Procedures (list all formal and informal measures used)\n4. Behavioral Observations during assessment\n5. Assessment Results (organized by domain, include standard scores with interpretive ranges)\n6. Clinical Impressions (synthesize findings into a coherent clinical picture)\n7. Diagnosis with ICD-10 codes\n8. Recommendations (therapy frequency, referrals, accommodations, home strategies)\n9. Prognosis with supporting factors\n\nAssessment Data:\n[Paste all test scores, observations, and clinical findings]\n\nPatient/Client Profile:\n[Age, referral reason, relevant background]\n\nFormat professionally with clear headers. Write impressions that tell a clinical story, not just restate scores.",
-    "tags": ["evaluation report", "documentation", "assessment", "ICD-10", "clinical writing"]
+    "tags": ["evaluation report", "documentation", "assessment", "ICD-10", "clinical writing"],
+    "level": "beginner"
   },
   {
     "id": "doc-letter-medical-necessity",
@@ -141,7 +167,8 @@
     "title": "Letter of Medical Necessity",
     "description": "Draft a letter of medical necessity for insurance authorization of speech therapy services.",
     "prompt": "You are an ASHA-certified speech-language pathologist writing a letter of medical necessity to support insurance authorization for speech-language pathology services. Draft a compelling letter.\n\nInclude:\n1. Patient identification and policy information\n2. Diagnosis with ICD-10 codes\n3. Summary of evaluation findings with severity indicators\n4. Functional impact of the communication disorder on daily life, safety, and participation\n5. Medical necessity justification using evidence-based criteria\n6. Proposed treatment plan with frequency, duration, and expected outcomes\n7. Specific, measurable goals with anticipated timeline\n8. Evidence supporting the proposed intervention approach\n9. Consequences of not receiving treatment\n\nPatient Information:\n[Diagnosis, severity, functional limitations]\n\nRequested Services:\n[Frequency, duration, treatment approach]\n\nInsurance Requirements:\n[Any specific criteria the insurer requires]\n\nUse strong medical necessity language. Reference ASHA practice guidelines and relevant research.",
-    "tags": ["medical necessity", "insurance", "authorization", "advocacy", "documentation"]
+    "tags": ["medical necessity", "insurance", "authorization", "advocacy", "documentation"],
+    "level": "beginner"
   },
   {
     "id": "doc-discharge-summary",
@@ -149,7 +176,17 @@
     "title": "Discharge Summary Generator",
     "description": "Generate a comprehensive discharge summary documenting treatment outcomes and recommendations.",
     "prompt": "You are an ASHA-certified speech-language pathologist writing a discharge summary. Generate a comprehensive summary documenting the course of treatment and outcomes.\n\nInclude:\n1. Patient information and dates of service\n2. Primary diagnosis and initial presentation\n3. Treatment goals (list each with status: met, partially met, not met)\n4. Quantitative progress data: baseline vs. discharge performance for each goal\n5. Treatment approaches used and patient response\n6. Functional communication changes from admission to discharge\n7. Reason for discharge (goals met, plateau, patient choice, etc.)\n8. Recommendations for ongoing support, home program, or future services\n9. Follow-up plan if applicable\n\nTreatment Summary:\n[Number of sessions, frequency, duration of treatment episode]\n\nGoals and Data:\n[List each goal with baseline and final data points]\n\nPatient's Perspective:\n[Patient/family satisfaction, self-reported changes]\n\nFormat for inclusion in the medical record.",
-    "tags": ["discharge summary", "documentation", "outcomes", "treatment summary"]
+    "tags": ["discharge summary", "documentation", "outcomes", "treatment summary"],
+    "level": "beginner"
+  },
+  {
+    "id": "doc-soap-note",
+    "category": "Documentation & Reporting",
+    "title": "SOAP Note Generator",
+    "description": "Generate a structured SOAP note from session data for any SLP service area.",
+    "prompt": "You are an ASHA-certified speech-language pathologist documenting a therapy session. Generate a professional SOAP note from the session information provided.\n\nInclude:\n1. Subjective:\n   - Patient/caregiver report of progress since last session\n   - Patient's self-assessment of current function\n   - Relevant changes in medical status or medications\n2. Objective:\n   - Specific activities and tasks completed during the session\n   - Quantitative data: accuracy percentages, cueing levels, number of trials\n   - Standardized measure scores if administered\n   - Behavioral observations (attention, fatigue, motivation)\n3. Assessment:\n   - Clinical interpretation of today's data\n   - Progress toward each targeted goal (improving, stable, declining)\n   - Comparison to baseline and previous sessions\n   - Factors affecting performance\n4. Plan:\n   - Next session targets and planned activities\n   - Modifications to treatment approach based on today's performance\n   - Home practice assignments with specific instructions\n   - Upcoming reassessment or discharge planning\n\nSession Details:\n[Date, duration, setting, session number]\n\nGoals Addressed:\n[List current goals with baseline data]\n\nSession Activities and Data:\n[Describe what you did and patient performance]\n\nFormat for electronic medical record documentation. Be specific and data-driven.",
+    "tags": ["SOAP note", "documentation", "progress note", "session note", "medical records"],
+    "level": "beginner"
   },
   {
     "id": "edu-clinical-scenario",
@@ -157,7 +194,8 @@
     "title": "Clinical Simulation Scenario",
     "description": "Create a detailed clinical simulation case for SLP student training and competency assessment.",
     "prompt": "You are an experienced clinical educator in speech-language pathology. Create a detailed clinical simulation scenario for training graduate SLP students.\n\nInclude:\n1. Patient/Client Profile: Demographics, medical/social history, referral reason\n2. Pre-simulation Briefing: Learning objectives, expected competencies\n3. Scenario Script: What the standardized patient presents, including communication behaviors to simulate\n4. Assessment Data to Provide: Test scores, medical reports, prior evaluations\n5. Decision Points: Key clinical reasoning moments where the student must make choices\n6. Correct Clinical Actions: What an appropriate assessment/treatment session looks like\n7. Common Student Errors: Mistakes to watch for with coaching feedback\n8. Debriefing Questions: Guided reflection prompts for post-simulation discussion\n\nTarget Competency Area:\n[e.g., dysphagia assessment, aphasia treatment, pediatric evaluation]\n\nStudent Level:\n[First year, second year, externship-ready]\n\nMake the scenario realistic with appropriate complexity for the student level.",
-    "tags": ["clinical education", "simulation", "student training", "competency", "supervision"]
+    "tags": ["clinical education", "simulation", "student training", "competency", "supervision"],
+    "level": "beginner"
   },
   {
     "id": "edu-evidence-review",
@@ -165,7 +203,8 @@
     "title": "Clinical Teaching Resource",
     "description": "Create a teaching module explaining a clinical concept with case examples for student learning.",
     "prompt": "You are an ASHA-certified speech-language pathologist and clinical educator. Create a teaching resource that explains a clinical concept clearly for graduate SLP students.\n\nInclude:\n1. Concept Overview: Clear explanation with clinical significance\n2. Theoretical Foundation: Key theories and models (with citations)\n3. Clinical Application: How this concept appears in practice\n4. Case Example: A realistic case illustrating the concept\n5. Critical Thinking Questions: 5 questions that deepen understanding\n6. Common Misconceptions: What students often get wrong and why\n7. Clinical Decision-Making Framework: How to apply this knowledge clinically\n8. Key References: Seminal and current articles to read\n\nClinical Concept:\n[Specify the topic, e.g., 'neural plasticity in aphasia recovery', 'IDDSI framework application']\n\nAudience Level:\n[Introductory, intermediate, advanced]\n\nMake it engaging and clinically grounded, not just theoretical.",
-    "tags": ["teaching", "clinical education", "case study", "student learning"]
+    "tags": ["teaching", "clinical education", "case study", "student learning"],
+    "level": "beginner"
   },
   {
     "id": "ebp-research-summary",
@@ -173,7 +212,8 @@
     "title": "Research Article Summary",
     "description": "Summarize a research article with critical appraisal and clinical implications for SLP practice.",
     "prompt": "You are an ASHA-certified speech-language pathologist with expertise in evidence-based practice. Summarize and critically appraise the following research article for clinical application.\n\nInclude:\n1. Citation in APA format\n2. Research Question/Purpose\n3. Study Design and Level of Evidence\n4. Participants (N, demographics, inclusion/exclusion criteria)\n5. Methods and Intervention (concise but complete)\n6. Key Findings (statistics, effect sizes, clinical significance)\n7. Critical Appraisal:\n   - Internal validity strengths and threats\n   - External validity and generalizability\n   - Methodological limitations\n8. Clinical Bottom Line: What does this mean for practice?\n9. Application Guidance: How to implement findings clinically\n10. Questions for Further Research\n\nArticle Information:\n[Paste article abstract, or provide title/authors/year for a well-known study]\n\nYour Clinical Context:\n[Describe your patient population or clinical question]\n\nRate the overall quality of evidence and applicability to your setting.",
-    "tags": ["EBP", "research appraisal", "evidence-based", "literature review", "critical analysis"]
+    "tags": ["EBP", "research appraisal", "evidence-based", "literature review", "critical analysis"],
+    "level": "advanced"
   },
   {
     "id": "ebp-clinical-question",
@@ -181,7 +221,17 @@
     "title": "PICO Clinical Question Builder",
     "description": "Transform a clinical uncertainty into a searchable PICO question with database search strategy.",
     "prompt": "You are an ASHA-certified speech-language pathologist with expertise in evidence-based practice. Help formulate a clinical question using the PICO framework and develop a search strategy.\n\nInclude:\n1. Original Clinical Uncertainty: Restate the question clearly\n2. PICO Breakdown:\n   - P (Patient/Population): Specific characteristics\n   - I (Intervention): Treatment, assessment, or approach in question\n   - C (Comparison): Alternative intervention or standard care\n   - O (Outcome): Measurable expected results\n3. Formatted PICO Question\n4. Search Strategy:\n   - Key terms and MeSH headings for each PICO element\n   - Boolean search string for PubMed\n   - Recommended databases (PubMed, CINAHL, ASHA journals)\n5. Inclusion/Exclusion Criteria for screening articles\n6. Tips for efficient literature searching\n\nClinical Scenario:\n[Describe the clinical situation that prompted the question]\n\nYour Uncertainty:\n[What specifically are you unsure about?]\n\nFormat the search strategy so it can be directly pasted into PubMed.",
-    "tags": ["PICO", "EBP", "literature search", "clinical question", "PubMed"]
+    "tags": ["PICO", "EBP", "literature search", "clinical question", "PubMed"],
+    "level": "beginner"
+  },
+  {
+    "id": "ebp-systematic-review",
+    "category": "EBP Research",
+    "title": "Systematic Review Summary",
+    "description": "Summarize and critically appraise a systematic review or meta-analysis for clinical decision-making.",
+    "prompt": "You are an ASHA-certified speech-language pathologist with advanced training in evidence-based practice and research methodology. Summarize and critically appraise the following systematic review or meta-analysis.\n\nInclude:\n1. Citation in APA format\n2. Review Question and Scope\n3. Search Strategy: Databases searched, date range, inclusion/exclusion criteria\n4. Study Selection: Number of studies identified, screened, and included (PRISMA flow)\n5. Included Studies: Overview of study designs, populations, and interventions\n6. Key Findings:\n   - Main results and effect sizes (with confidence intervals)\n   - Heterogeneity assessment (I² statistic interpretation)\n   - Subgroup analyses if relevant\n7. Quality Assessment:\n   - Risk of bias tool used (AMSTAR-2, Cochrane RoB)\n   - Overall quality rating of included studies\n8. Critical Appraisal of the Review Itself:\n   - Comprehensiveness of the search\n   - Appropriateness of inclusion criteria\n   - Publication bias assessment\n   - Limitations acknowledged by authors and additional limitations you identify\n9. Clinical Bottom Line: What should clinicians do based on this evidence?\n10. Strength of Recommendation: Using GRADE or similar framework\n\nReview Information:\n[Paste abstract or provide citation details]\n\nYour Clinical Question:\n[How does this review relate to your clinical decision-making?]\n\nProvide actionable takeaways for a busy clinician.",
+    "tags": ["systematic review", "meta-analysis", "EBP", "GRADE", "critical appraisal"],
+    "level": "advanced"
   },
   {
     "id": "counsel-difficult-conversation",
@@ -189,7 +239,8 @@
     "title": "Difficult Conversation Framework",
     "description": "Prepare for challenging clinical conversations about prognosis, discharge, or treatment limitations.",
     "prompt": "You are an ASHA-certified speech-language pathologist experienced in clinical counseling. Help prepare for a difficult conversation with a patient or family member.\n\nInclude:\n1. Pre-conversation Preparation:\n   - Key information to gather before the meeting\n   - Emotional readiness check for the clinician\n   - Setting and timing considerations\n2. Opening: How to begin the conversation with empathy\n3. Core Message: How to deliver the difficult information clearly and compassionately\n4. Anticipated Reactions: Common emotional responses and how to respond to each\n5. Talking Points: Specific phrases to use and phrases to avoid\n6. Active Listening Responses: How to validate emotions while maintaining clinical honesty\n7. Action Planning: Concrete next steps to offer\n8. Closing: How to end the conversation with support and hope (where appropriate)\n9. Self-Care: Clinician debriefing strategies\n\nSituation:\n[Describe the difficult conversation needed]\n\nRelationship Context:\n[How long you've worked with this patient/family, rapport level]\n\nKey Message to Deliver:\n[The core information that needs to be communicated]\n\nUse person-first, empathetic language throughout.",
-    "tags": ["counseling", "difficult conversations", "prognosis", "family meeting", "empathy"]
+    "tags": ["counseling", "difficult conversations", "prognosis", "family meeting", "empathy"],
+    "level": "advanced"
   },
   {
     "id": "counsel-caregiver-burnout",
@@ -197,7 +248,8 @@
     "title": "Caregiver Support & Burnout Prevention",
     "description": "Create a caregiver support plan addressing communication partner training and burnout prevention.",
     "prompt": "You are an ASHA-certified speech-language pathologist who understands the impact of communication disorders on family systems. Create a comprehensive caregiver support plan.\n\nInclude:\n1. Communication Partner Assessment:\n   - Current understanding of the communication disorder\n   - Existing facilitative and hindering communication behaviors\n   - Caregiver's emotional state and coping mechanisms\n2. Communication Strategy Training:\n   - Top 5 strategies personalized for this dyad (e.g., aided input, wait time, repair strategies)\n   - Practice scenarios with scripted examples\n   - Common communication breakdowns and repair scripts\n3. Burnout Prevention:\n   - Signs of caregiver burnout specific to communication disorders\n   - Boundaries and realistic expectations to set\n   - Self-care strategies that are actually practical\n4. Support Resources:\n   - Support groups (condition-specific)\n   - Respite care information\n   - Online communities and educational materials\n5. Follow-Up Plan: Schedule for checking in and adjusting strategies\n\nPatient's Communication Profile:\n[Diagnosis, severity, communication modalities]\n\nCaregiver Profile:\n[Relationship, daily caregiving responsibilities, stress indicators]\n\nUse compassionate, strengths-based language. Acknowledge the caregiver's effort and expertise.",
-    "tags": ["caregiver support", "burnout prevention", "communication partner", "family", "counseling"]
+    "tags": ["caregiver support", "burnout prevention", "communication partner", "family", "counseling"],
+    "level": "beginner"
   },
   {
     "id": "counsel-motivational-interviewing",
@@ -205,6 +257,115 @@
     "title": "Motivational Interviewing for Therapy Engagement",
     "description": "Apply motivational interviewing techniques to improve patient engagement and adherence to therapy.",
     "prompt": "You are an ASHA-certified speech-language pathologist trained in motivational interviewing (MI) techniques. Generate an MI-informed approach for improving therapy engagement with the following patient.\n\nInclude:\n1. Assessment of Current Motivation:\n   - Stages of change model placement\n   - Identified ambivalence and barriers\n   - The patient's own language about change\n2. OARS Techniques Applied:\n   - Open-ended questions specific to their situation\n   - Affirmations of their strengths and efforts\n   - Reflective listening responses to anticipated statements\n   - Summary statements that build toward change talk\n3. Developing Discrepancy:\n   - Current behavior vs. stated values/goals\n   - Gentle exploration of consequences\n4. Change Talk Elicitation:\n   - Desire, ability, reasons, need (DARN) prompts\n   - Importance and confidence rulers\n5. Action Planning:\n   - Small, achievable first steps\n   - Commitment language to listen for\n   - Plan for sustaining motivation between sessions\n\nPatient Situation:\n[Describe the engagement challenge]\n\nPatient's Stated Goals:\n[What the patient says they want]\n\nBarriers Observed:\n[What's preventing full engagement]\n\nMaintain the MI spirit: partnership, acceptance, compassion, evocation.",
-    "tags": ["motivational interviewing", "engagement", "adherence", "counseling", "behavior change"]
+    "tags": ["motivational interviewing", "engagement", "adherence", "counseling", "behavior change"],
+    "level": "advanced"
+  },
+  {
+    "id": "hipaa-phi-deidentification",
+    "category": "HIPAA & Compliance",
+    "title": "PHI De-Identification Checklist",
+    "description": "Generate a step-by-step checklist for removing protected health information before using AI tools.",
+    "prompt": "You are a HIPAA compliance specialist with expertise in speech-language pathology documentation. Create a comprehensive PHI de-identification checklist that an SLP can use before inputting any clinical data into an AI tool.\n\nInclude:\n1. Complete list of the 18 HIPAA identifiers that must be removed:\n   - Name, address, dates (except year), phone/fax, email, SSN, MRN, health plan numbers, account numbers, certificate/license numbers, device identifiers, URLs, IP addresses, biometric identifiers, full-face photos, and any other unique identifying number\n2. Step-by-step de-identification process:\n   - How to replace each identifier with safe placeholders\n   - Examples of properly de-identified clinical notes\n   - Common mistakes clinicians make when de-identifying\n3. Safe placeholder conventions:\n   - [PATIENT] instead of names\n   - [DATE] instead of specific dates\n   - [FACILITY] instead of hospital/clinic names\n   - [PROVIDER] instead of clinician names\n4. Quick-reference decision tree: \"Can I put this into an AI tool?\"\n5. Documentation template: Record of what was de-identified and when\n6. Re-identification safeguards: How to map back to real data securely\n\nFormat as a printable clinical reference sheet that can be posted near workstations.",
+    "tags": ["HIPAA", "PHI", "de-identification", "privacy", "compliance"],
+    "level": "beginner"
+  },
+  {
+    "id": "hipaa-documentation-review",
+    "category": "HIPAA & Compliance",
+    "title": "Privacy-Safe Documentation Review",
+    "description": "Review clinical documentation for privacy compliance before sharing, storing, or transmitting.",
+    "prompt": "You are a HIPAA compliance officer reviewing speech-language pathology documentation for privacy safety. Analyze the provided clinical document and generate a compliance review.\n\nInclude:\n1. PHI Scan Results:\n   - List every instance of protected health information found\n   - Classify each as direct identifier vs. quasi-identifier\n   - Risk level for each (high/medium/low re-identification risk)\n2. Minimum Necessary Assessment:\n   - Does the document contain only the PHI needed for its stated purpose?\n   - Recommendations for reducing unnecessary PHI\n3. Safe Handling Recommendations:\n   - Appropriate transmission methods for this document type\n   - Storage requirements (encryption, access controls)\n   - Retention and destruction timeline\n4. De-Identified Version:\n   - Provide a fully de-identified version of the document\n   - Mark all changes made with [REDACTED: reason]\n5. Compliance Checklist:\n   - HIPAA Privacy Rule alignment\n   - State-specific requirements (if applicable)\n   - Business Associate Agreement needs (if sharing with third parties)\n\nDocument to Review:\n[Paste clinical documentation here — remember to use a practice/fictional document for this prompt]\n\nPurpose of Document:\n[Who will see this and why]\n\nFlag any issues that require immediate attention.",
+    "tags": ["HIPAA", "privacy", "documentation review", "compliance", "PHI"],
+    "level": "advanced"
+  },
+  {
+    "id": "hipaa-ai-use-policy",
+    "category": "HIPAA & Compliance",
+    "title": "AI Use Policy Generator",
+    "description": "Draft a clinical department policy for responsible AI use in SLP practice.",
+    "prompt": "You are a healthcare compliance consultant specializing in AI governance for clinical settings. Draft a comprehensive AI use policy for a speech-language pathology department.\n\nInclude:\n1. Policy Statement:\n   - Purpose and scope of the policy\n   - Definition of AI tools covered (LLMs, clinical decision support, documentation assistants)\n2. Approved Use Cases:\n   - Clinical documentation drafting (with human review)\n   - Patient education material generation\n   - Research and literature review support\n   - Treatment planning brainstorming\n3. Prohibited Uses:\n   - Direct patient diagnosis without clinician review\n   - Inputting unredacted PHI into non-BAA AI tools\n   - Using AI outputs as sole basis for clinical decisions\n   - Sharing AI-generated content without clinician verification\n4. PHI Protection Requirements:\n   - Mandatory de-identification steps before AI input\n   - Approved AI platforms (those with BAAs)\n   - Data handling and retention requirements\n5. Quality Assurance:\n   - Required human review of all AI-generated clinical content\n   - Documentation of AI assistance in clinical notes\n   - Error reporting and tracking procedures\n6. Training Requirements:\n   - Staff onboarding for AI tools\n   - Annual compliance refresher\n   - Competency verification\n7. Incident Response:\n   - What to do if PHI is accidentally entered into a non-compliant AI tool\n   - Breach notification procedures\n   - Corrective action steps\n\nDepartment Context:\n[Size of department, patient population, current AI tools in use]\n\nFormat as a formal policy document ready for department review and adoption.",
+    "tags": ["AI policy", "HIPAA", "governance", "compliance", "clinical AI"],
+    "level": "advanced"
+  },
+  {
+    "id": "telepractice-session-adaptation",
+    "category": "Telepractice",
+    "title": "Telepractice Session Adaptation Plan",
+    "description": "Adapt in-person therapy activities for effective telepractice delivery across SLP service areas.",
+    "prompt": "You are an ASHA-certified speech-language pathologist experienced in telepractice service delivery. Create a detailed plan for adapting the following in-person therapy approach for telepractice.\n\nInclude:\n1. Technology Setup:\n   - Required platforms and tools (screen sharing, virtual whiteboards, digital materials)\n   - Backup plans for technology failures\n   - Minimum bandwidth and device requirements for the patient/client\n2. Activity Adaptations:\n   - How each therapy activity translates to a virtual format\n   - Digital materials and resources needed (with specific tool recommendations)\n   - Screen-sharing strategies for visual stimuli\n   - Interactive engagement techniques to maintain attention\n3. Assessment Modifications:\n   - How to reliably collect data in a telepractice format\n   - Standardized test administration considerations and limitations\n   - Observational assessment strategies via video\n4. Patient/Caregiver Preparation:\n   - Pre-session setup instructions\n   - Environmental recommendations (quiet space, lighting, camera position)\n   - Caregiver role during sessions (especially for pediatric clients)\n5. Session Structure:\n   - Recommended session length adjustments\n   - Break strategies for screen fatigue\n   - Warm-up and closing routines specific to telepractice\n6. Documentation Notes:\n   - How to document telepractice-specific factors\n   - Billing considerations and modifiers\n\nTherapy Approach to Adapt:\n[Describe the in-person therapy activities, target goals, and patient profile]\n\nTechnology Available:\n[What platforms and devices does the patient/family have?]\n\nEnsure adaptations maintain treatment fidelity and evidence-based principles.",
+    "tags": ["telepractice", "teletherapy", "virtual therapy", "adaptation", "technology"],
+    "level": "beginner"
+  },
+  {
+    "id": "telepractice-troubleshooting",
+    "category": "Telepractice",
+    "title": "Telepractice Troubleshooting Guide",
+    "description": "Create a troubleshooting reference for common telepractice challenges in SLP service delivery.",
+    "prompt": "You are an ASHA-certified speech-language pathologist with extensive telepractice experience. Create a comprehensive troubleshooting guide for common challenges in telepractice SLP sessions.\n\nInclude solutions for:\n1. Technical Issues:\n   - Audio quality problems (echo, delay, distortion) — impact on speech/voice assessment accuracy\n   - Video freezing or poor quality — strategies for continuing the session\n   - Platform crashes — backup communication methods and session recovery\n   - Screen sharing failures — alternative ways to present materials\n2. Clinical Challenges:\n   - Assessing speech sound production accuracy through a screen\n   - Conducting oral mechanism exams remotely (caregiver-assisted techniques)\n   - Maintaining engagement with young children or patients with attention difficulties\n   - Managing behavioral challenges without physical proximity\n   - Obtaining reliable acoustic measurements via telehealth\n3. Environmental Issues:\n   - Noisy home environments — strategies for the patient and clinician\n   - Poor lighting affecting visual assessment\n   - Inadequate workspace setup\n   - Multiple family members in the session space\n4. Caregiver/Facilitator Challenges:\n   - Caregiver over-helping or under-supporting\n   - Language barriers with caregivers\n   - Caregiver technology anxiety\n5. Documentation & Compliance:\n   - Informed consent for telepractice\n   - State licensure considerations for cross-state services\n   - Recording policies and patient privacy\n\nFormat as a quick-reference guide organized by problem category with clear, actionable solutions.",
+    "tags": ["telepractice", "troubleshooting", "teletherapy", "technology", "problem-solving"],
+    "level": "beginner"
+  },
+  {
+    "id": "telepractice-engagement",
+    "category": "Telepractice",
+    "title": "Telepractice Engagement Strategies",
+    "description": "Generate creative engagement strategies to maximize patient participation in virtual SLP sessions.",
+    "prompt": "You are an ASHA-certified speech-language pathologist who specializes in maximizing patient engagement during telepractice sessions. Generate creative, evidence-based engagement strategies for the following client profile.\n\nInclude:\n1. Session Opening Hooks:\n   - 3 attention-grabbing opening routines that work well on screen\n   - Visual countdown or transition cues for session start\n   - Rapport-building activities adapted for video\n2. Interactive Tools and Techniques:\n   - Virtual manipulatives and digital game recommendations\n   - Screen annotation and drawing tool activities\n   - Movement breaks that incorporate therapy targets\n   - Reward systems adapted for telepractice (virtual sticker charts, point systems)\n3. Engagement Recovery Strategies:\n   - What to do when the client disengages or goes off-camera\n   - Attention recapture techniques by age group\n   - When and how to involve the caregiver as engagement support\n4. Multi-Sensory Adaptations:\n   - Incorporating tactile activities the client can do at home\n   - Using household items as therapy materials\n   - Music and rhythm-based engagement strategies\n5. Session Pacing:\n   - Optimal activity length by age and diagnosis\n   - Transition strategies between activities\n   - Signs of screen fatigue and what to do\n6. Caregiver Coaching for Engagement:\n   - How caregivers can support without taking over\n   - Environmental setup tips that promote engagement\n\nClient Profile:\n[Age, diagnosis, interests, attention span, caregiver availability]\n\nTherapy Targets:\n[Current goals being addressed]\n\nFocus on strategies that are practical, require minimal materials, and maintain therapeutic value.",
+    "tags": ["telepractice", "engagement", "virtual therapy", "motivation", "interactive"],
+    "level": "beginner"
+  },
+  {
+    "id": "bilingual-assessment",
+    "category": "Bilingual/Multilingual",
+    "title": "Bilingual Assessment Considerations",
+    "description": "Guide culturally and linguistically responsive assessment planning for bilingual or multilingual clients.",
+    "prompt": "You are an ASHA-certified speech-language pathologist with expertise in bilingual and multilingual assessment. Guide the development of a culturally and linguistically responsive assessment plan for the following client.\n\nInclude:\n1. Language History and Proficiency Profile:\n   - Questions to determine language exposure, use, and proficiency across contexts\n   - Language dominance and language use patterns\n   - Impact of language experience on expected performance\n2. Assessment Tool Selection:\n   - Appropriate standardized assessments (with validity considerations for this population)\n   - Dynamic assessment approaches and procedures\n   - Language sample analysis in both/all languages\n   - Criterion-referenced measures and informal probes\n3. Interpreter/Translator Considerations:\n   - When and how to use an interpreter during assessment\n   - Briefing the interpreter on assessment protocols\n   - Limitations of interpreted assessment results\n4. Cultural Considerations:\n   - Culturally specific communication norms that may affect assessment\n   - Pragmatic expectations across cultures\n   - Family interaction patterns and their influence on language development\n5. Distinguishing Difference vs. Disorder:\n   - Expected bilingual development patterns at this age/stage\n   - Cross-linguistic transfer patterns (positive and negative)\n   - Features that suggest a true disorder vs. typical bilingual development\n   - Red flags that indicate concern regardless of bilingual status\n6. Report Writing:\n   - How to document bilingual assessment results\n   - Appropriate caveats and clinical interpretation\n   - Recommendations for service delivery language\n\nClient Profile:\n[Age, languages spoken, exposure history, reason for referral]\n\nClinician's Language Proficiency:\n[What languages do you speak? What resources are available?]\n\nEnsure recommendations align with ASHA's position on bilingual service delivery.",
+    "tags": ["bilingual", "multilingual", "culturally responsive", "assessment", "dynamic assessment"],
+    "level": "advanced"
+  },
+  {
+    "id": "bilingual-difference-disorder",
+    "category": "Bilingual/Multilingual",
+    "title": "Difference vs. Disorder Analysis",
+    "description": "Analyze assessment data to differentiate between a language difference and a true communication disorder in bilingual clients.",
+    "prompt": "You are an ASHA-certified speech-language pathologist with expertise in bilingual language development and culturally responsive assessment. Analyze the following assessment data to determine whether the observed communication patterns represent a language difference or a communication disorder.\n\nInclude:\n1. Data Analysis:\n   - Review of performance in both/all languages\n   - Identification of patterns consistent with typical bilingual development\n   - Identification of patterns that cross both languages (potential disorder indicators)\n   - Cross-linguistic transfer analysis\n2. Developmental Comparison:\n   - Expected milestones for bilingual children at this age\n   - Comparison to bilingual norms (not monolingual norms)\n   - Sequential vs. simultaneous bilingual development considerations\n3. Feature Analysis:\n   - Grammatical features affected: language-specific vs. universal\n   - Phonological patterns: dialectal vs. disordered\n   - Vocabulary: conceptual vocabulary across languages combined\n   - Pragmatic skills across cultural contexts\n4. Dynamic Assessment Results:\n   - Modifiability and learning potential\n   - Stimulability in both languages\n   - Response to mediated learning experiences\n5. Clinical Decision Framework:\n   - Evidence supporting \"difference\" interpretation\n   - Evidence supporting \"disorder\" interpretation\n   - Confidence level in the determination\n   - Recommendations for monitoring if borderline\n6. Recommendations:\n   - Service eligibility determination with rationale\n   - Language of intervention recommendation\n   - Goals that are culturally and linguistically appropriate\n   - Family counseling points about bilingualism and the diagnosis\n\nAssessment Data:\n[Include results from both languages, dynamic assessment, language samples]\n\nClient Profile:\n[Age, languages, exposure history, educational setting, family concerns]\n\nProvide a clear clinical rationale that would withstand professional scrutiny.",
+    "tags": ["bilingual", "difference vs disorder", "language development", "culturally responsive", "assessment"],
+    "level": "advanced"
+  },
+  {
+    "id": "bilingual-family-interview",
+    "category": "Bilingual/Multilingual",
+    "title": "Family Language Interview Guide",
+    "description": "Structure a comprehensive family interview to understand language use, exposure, and cultural communication practices.",
+    "prompt": "You are an ASHA-certified speech-language pathologist preparing to conduct a family language interview as part of a comprehensive communication assessment. Generate a culturally sensitive interview guide.\n\nInclude:\n1. Opening and Rapport Building:\n   - Culturally appropriate greeting and introduction\n   - Explanation of the interview purpose in accessible language\n   - Establishing trust and openness\n2. Language History Questions:\n   - What languages are spoken in the home? By whom? To whom?\n   - What was the child's first language? When were they introduced to each language?\n   - Language use patterns across settings (home, extended family, community, school, religious settings)\n   - Changes in language use over time (e.g., immigration, school entry)\n3. Language Exposure Quantification:\n   - Typical daily/weekly schedule with language use mapped to each activity\n   - Quality of input in each language (native speakers, fluency of input providers)\n   - Literacy exposure in each language\n4. Communication Development:\n   - Developmental milestones in all languages (first words, combinations)\n   - Communication concerns in each language\n   - Comparison to siblings or same-age peers in their community\n5. Cultural Communication Practices:\n   - Family interaction styles and expectations for children\n   - Storytelling, literacy, and play traditions\n   - Views on disability and therapy in their cultural context\n   - Communication expectations across generations\n6. Family Goals and Concerns:\n   - What are the family's priorities for communication?\n   - What language(s) do they want their child to use?\n   - Previous experiences with speech-language services\n   - Questions or concerns about bilingualism\n\nClient Profile:\n[Age, languages, family structure, reason for referral]\n\nInterview Context:\n[In-person vs. telepractice, interpreter needed?]\n\nFormat questions in family-friendly, jargon-free language. Include suggested follow-up probes.",
+    "tags": ["bilingual", "family interview", "language history", "culturally responsive", "assessment"],
+    "level": "beginner"
+  },
+  {
+    "id": "aac-assessment",
+    "category": "AAC",
+    "title": "AAC Assessment & Feature Matching",
+    "description": "Guide comprehensive AAC assessment including feature matching to identify the best communication system.",
+    "prompt": "You are an ASHA-certified speech-language pathologist specializing in augmentative and alternative communication (AAC). Conduct a comprehensive AAC assessment and feature matching analysis for the following individual.\n\nInclude:\n1. Communication Profile:\n   - Current communication modalities and effectiveness\n   - Communication partners and contexts\n   - Communication functions currently expressed (requesting, commenting, protesting, etc.)\n   - Communication breakdowns and repair strategies in use\n2. Feature Matching Analysis:\n   - Motor access considerations (pointing, switch access, eye gaze, touch)\n   - Visual and auditory processing considerations\n   - Language representation needs (symbols, text, combination)\n   - Vocabulary organization approach (grid, visual scene, hybrid)\n   - Output needs (speech output, text, both)\n   - Portability and durability requirements\n3. AAC System Recommendations:\n   - Primary AAC system recommendation with rationale\n   - Backup/low-tech system recommendation\n   - Specific device/app recommendations with justification\n   - Vocabulary selection approach (core vocabulary + fringe)\n4. Implementation Priorities:\n   - Immediate communication targets\n   - Vocabulary to program first\n   - Communication partner training needs\n   - Environmental modifications needed\n5. Trial Period Plan:\n   - How to structure an AAC trial\n   - Data collection during the trial\n   - Decision criteria for system selection\n6. Funding Justification:\n   - Medical necessity language for SGD funding\n   - Required documentation for insurance/Medicaid\n\nIndividual Profile:\n[Age, diagnosis, motor abilities, cognition, current communication]\n\nCommunication Environment:\n[Home, school/work, community settings, key communication partners]\n\nBase recommendations on current AAC evidence and ASHA practice guidelines.",
+    "tags": ["AAC", "feature matching", "assessment", "assistive technology", "SGD"],
+    "level": "advanced"
+  },
+  {
+    "id": "aac-implementation",
+    "category": "AAC",
+    "title": "AAC Implementation Plan",
+    "description": "Create a structured implementation plan for introducing and expanding an AAC system across communication contexts.",
+    "prompt": "You are an ASHA-certified speech-language pathologist specializing in AAC implementation. Create a detailed implementation plan for introducing and expanding an AAC system.\n\nInclude:\n1. Phase 1 — Introduction (Weeks 1-4):\n   - System setup and customization\n   - Initial vocabulary selection (core words first)\n   - Modeling plan: how partners will model AAC use\n   - First communication targets and contexts\n   - Data collection baseline measures\n2. Phase 2 — Expansion (Weeks 5-12):\n   - Vocabulary expansion schedule\n   - Adding new communication functions\n   - Expanding to new contexts and communication partners\n   - Increasing message length and complexity\n   - Troubleshooting common challenges\n3. Phase 3 — Generalization (Months 3-6):\n   - Community and social participation goals\n   - Academic/vocational integration\n   - Peer interaction support\n   - Self-advocacy skill development\n4. Communication Partner Training:\n   - Training curriculum for each partner group (family, teachers, peers, staff)\n   - Modeling strategies (aided language stimulation)\n   - Responding to AAC communication\n   - Common mistakes and how to avoid them\n5. Goals and Objectives:\n   - SMART goals for each implementation phase\n   - Data collection procedures\n   - Progress monitoring schedule\n6. Maintenance and Updates:\n   - Vocabulary update schedule\n   - System maintenance (charging, updates, backups)\n   - Annual review and reassessment plan\n\nAAC System:\n[Device/app, access method, vocabulary organization]\n\nIndividual Profile:\n[Age, diagnosis, current communication level, cognitive/motor abilities]\n\nImplementation Team:\n[Who will be involved in supporting AAC use daily?]\n\nFocus on practical, achievable steps that lead to independent, functional communication.",
+    "tags": ["AAC", "implementation", "aided language stimulation", "communication partner training"],
+    "level": "beginner"
+  },
+  {
+    "id": "aac-core-vocabulary",
+    "category": "AAC",
+    "title": "Core Vocabulary Teaching Plan",
+    "description": "Design a structured teaching plan for introducing core vocabulary words through aided language stimulation.",
+    "prompt": "You are an ASHA-certified speech-language pathologist specializing in AAC and core vocabulary instruction. Design a structured teaching plan for introducing core vocabulary words.\n\nInclude:\n1. Core Word Selection:\n   - 10 priority core words to teach first (with rationale based on research)\n   - Frequency and versatility analysis for each word\n   - How each word can be used across multiple communication functions\n2. Teaching Methodology:\n   - Aided language stimulation protocol (how to model on the AAC system)\n   - Naturalistic teaching opportunities throughout the day\n   - Structured teaching activities for each core word\n   - Elicitation strategies that go beyond simple requesting\n3. Activity Plans (3 per core word):\n   - Activity name and context (play, snack, reading, movement)\n   - How to create natural opportunities for the target word\n   - Modeling script (what the partner says and does)\n   - Expected responses and how to respond to each\n   - Data collection method\n4. Communication Partner Quick Guide:\n   - One-page reference for each core word\n   - When to model, when to wait, when to prompt\n   - Examples of aided language stimulation in daily routines\n   - Common mistakes (over-prompting, testing, not modeling enough)\n5. Progress Monitoring:\n   - How to track spontaneous vs. prompted use\n   - Criteria for \"mastery\" and moving to new words\n   - Data collection tools and schedules\n6. Word Combinations:\n   - When to start combining core words\n   - Natural word combination targets (e.g., \"more + [word]\", \"want + [word]\")\n   - Activities that encourage two-word combinations\n\nIndividual Profile:\n[Age, diagnosis, current communication level, AAC system in use]\n\nCurrent Core Word Use:\n[Which core words, if any, are already in the individual's repertoire?]\n\nPriority Communication Contexts:\n[Where does this person most need to communicate?]\n\nGround all recommendations in core vocabulary research (e.g., Banajee, Dicarlo & Stricklin, 2003; Clendon & Andersen, 2016).",
+    "tags": ["AAC", "core vocabulary", "aided language stimulation", "teaching", "modeling"],
+    "level": "beginner"
   }
 ]

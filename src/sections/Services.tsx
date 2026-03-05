@@ -48,7 +48,7 @@ const services = [
             'LLM-powered clinical assistants',
             'RAG pipelines & vector search',
             'Agentic workflow automation',
-            'Ethical AI governance frameworks',
+            'AI output validation & safety testing',
         ],
     },
 ];
@@ -92,7 +92,7 @@ export default function Services() {
                         CAPABILITIES
                     </h2>
                     <p className="text-lg md:text-xl text-[var(--color-text-muted)] font-body leading-relaxed">
-                        I don't just build websites. I architect digital systems that solve real problems in clinical settings — from patient intake portals to AI-powered therapy tools.
+                        I build digital systems that solve real problems in clinical settings — from patient intake portals to AI-powered therapy tools.
                     </p>
                 </div>
 

@@ -35,14 +35,14 @@ const projects = [
     {
         title: 'Informed Consent Tool',
         category: 'Clinical Workflow',
-        description: 'A guided informed consent platform for dysphagia clinicians. Step-by-step capacity assessment, risk disclosure, teach-back verification, and HIPAA-compliant documentation — built on the Dysphagia Outreach Project\'s evidence-based checklist.',
+        description: 'Built in collaboration with the Dysphagia Outreach Project, this guided consent platform walks clinicians through capacity assessment, risk disclosure, and teach-back verification — with HIPAA-compliant documentation at every step.',
         stack: ['Next.js', 'React', 'TypeScript'],
         link: 'https://consent-1by6.onrender.com',
     },
     {
         title: 'SLP Prompt Library',
         category: 'Clinical Resource',
-        description: 'A curated collection of evidence-based prompt structures for SLPs. Copy-paste ready prompts for clinical documentation, patient education, research, and more.',
+        description: '40+ free, copy-paste-ready prompt templates built for medical SLPs — spanning documentation, treatment planning, patient education, and research across 11+ clinical domains. Includes an interactive Prompt Coach to help you build effective prompts for any workflow. Grounded in EBP.',
         stack: ['React', 'TypeScript', 'EBP'],
         link: '/prompts',
     },

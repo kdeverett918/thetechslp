@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .card {
+    width: 1200px;
+    height: 630px;
+    background: #f5f0eb;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Decorative geometric shapes */
+  .shape-1 {
+    position: absolute;
+    top: -30px;
+    right: 60px;
+    width: 180px;
+    height: 180px;
+    background: #8fa596;
+    opacity: 0.25;
+    transform: rotate(15deg);
+    border-radius: 8px;
+  }
+
+  .shape-2 {
+    position: absolute;
+    bottom: -20px;
+    left: 50px;
+    width: 140px;
+    height: 140px;
+    background: #d05e41;
+    opacity: 0.2;
+    transform: rotate(-10deg);
+    border-radius: 8px;
+  }
+
+  .shape-3 {
+    position: absolute;
+    top: 180px;
+    left: -40px;
+    width: 80px;
+    height: 80px;
+    border: 3px solid #8fa596;
+    opacity: 0.3;
+    transform: rotate(25deg);
+    border-radius: 4px;
+  }
+
+  .shape-4 {
+    position: absolute;
+    bottom: 120px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    border: 3px solid #d05e41;
+    opacity: 0.2;
+    transform: rotate(-20deg);
+    border-radius: 4px;
+  }
+
+  /* Subtle dot grid pattern */
+  .dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, #c4b5a4 0.8px, transparent 0.8px);
+    background-size: 32px 32px;
+    opacity: 0.12;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .tagline {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #d05e41;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  .title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 82px;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #5a5a5a;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  .footer-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #1a1a1a;
+    padding: 14px 36px;
+    border-radius: 6px;
+  }
+
+  .footer-bar span {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    color: #f5f0eb;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .footer-bar .dot {
+    width: 5px;
+    height: 5px;
+    background: #d05e41;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Terracotta accent line at bottom */
+  .accent-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #d05e41, #e07a5f, #d05e41);
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="dots"></div>
+    <div class="shape-1"></div>
+    <div class="shape-2"></div>
+    <div class="shape-3"></div>
+    <div class="shape-4"></div>
+
+    <div class="content">
+      <div class="tagline">Where Clinical Expertise Meets Technology</div>
+      <div class="title">The Tech SLP</div>
+      <div class="subtitle">Clinical Technology Studio</div>
+      <div class="footer-bar">
+        <span>thetechslp.com</span>
+        <div class="dot"></div>
+        <span>Kristine Deverett, CCC-SLP</span>
+      </div>
+    </div>
+
+    <div class="accent-line"></div>
+  </div>
+</body>
+</html>

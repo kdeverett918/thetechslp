@@ -37,7 +37,7 @@ export default function About() {
                                     Clinicians are exhausted by generic templates and bloated enterprise software. The tools we use directly shape the quality of care we deliver — and most of them weren't built by people who understand the work.
                                 </p>
                                 <p>
-                                    As a practicing SLP, I live inside the friction points: documentation bottlenecks, cognitive overload during sessions, clunky systems that slow everything down. I build software that eliminates those barriers.
+                                    As a practicing SLP, I know the friction points firsthand: documentation bottlenecks, cognitive overload during sessions, clunky systems that slow everything down. I build software that eliminates those barriers.
                                 </p>
                                 <p>
                                     Every application I create is purpose-built — elegant, fast, and designed by someone who actually does the clinical work. That's the difference.

@@ -1,16 +1,100 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { Link } from 'react-router';
-import { ArrowLeft, Search, Copy, Check, ChevronDown, ChevronUp, X } from 'lucide-react';
+import { ArrowLeft, Search, Copy, Check, ChevronDown, ChevronUp, X, ShieldAlert, Wand2, Lightbulb } from 'lucide-react';
 import { createReveal } from '../utils/animations';
 import prompts from '../data/prompts.json';
 
 const categories = [...new Set(prompts.map(p => p.category))];
+
+const SETTINGS = [
+    'Acute Care Hospital',
+    'Inpatient Rehabilitation',
+    'Outpatient Clinic',
+    'Skilled Nursing Facility',
+    'Home Health',
+    'School-Based',
+    'Early Intervention',
+    'Telepractice',
+    'Private Practice',
+    'University Clinic',
+];
+
+const SPECIALTIES = [
+    'Dysphagia',
+    'Aphasia & Language',
+    'Motor Speech Disorders',
+    'Voice Disorders',
+    'Fluency',
+    'Pediatric Speech-Language',
+    'Cognitive-Communication',
+    'AAC',
+    'Bilingual/Multilingual',
+];
+
+const TASKS = [
+    'Write documentation (eval, progress note, discharge)',
+    'Create a treatment plan with goals',
+    'Generate patient/family education materials',
+    'Prepare for a difficult conversation',
+    'Develop therapy activities',
+    'Summarize research for clinical application',
+    'Draft a letter of medical necessity',
+    'Build an IEP with measurable goals',
+    'Design a home practice program',
+    'Create training materials for staff/students',
+];
+
+const OUTPUT_FORMATS = [
+    'Clinical report / chart note',
+    'Patient-friendly handout (6th grade reading level)',
+    'Bullet-point summary',
+    'Step-by-step protocol',
+    'Table or comparison chart',
+    'Email or letter',
+    'Slide deck outline',
+    'Checklist',
+];
+
+const PROMPTING_TIPS = [
+    {
+        title: 'Set the clinical context',
+        description: 'Tell the AI your setting, patient population, and the specific clinical scenario. "You are an SLP in an acute care hospital evaluating a post-stroke patient" is far better than "help me with dysphagia."',
+    },
+    {
+        title: 'Define the AI\'s role',
+        description: 'Start with "You are an ASHA-certified speech-language pathologist specializing in..." This grounds the AI in clinical expertise and produces more relevant outputs.',
+    },
+    {
+        title: 'Specify the output format',
+        description: 'Request a specific structure: "Format as a SOAP note," "Create a bulleted checklist," or "Write at a 6th-grade reading level." This prevents generic, unfocused responses.',
+    },
+    {
+        title: 'Reference clinical frameworks',
+        description: 'Mention specific frameworks like IDDSI, LPAA, SMART goals, PICO, or SSI-4. The AI will produce more accurate, standards-aligned content when guided by established models.',
+    },
+    {
+        title: 'Never paste PHI',
+        description: 'Always de-identify patient data before using any AI tool. Replace names with [PATIENT], dates with [DATE], and facilities with [FACILITY]. See the HIPAA prompts in this library for a full checklist.',
+    },
+    {
+        title: 'Iterate and refine',
+        description: 'Your first prompt rarely produces the perfect result. Review the output, identify what\'s missing, and ask follow-up questions: "Add compensatory strategies" or "Make the language less technical."',
+    },
+];
 
 export default function PromptLibrary() {
     const [search, setSearch] = useState('');
     const [activeCategories, setActiveCategories] = useState<string[]>([]);
     const [expandedId, setExpandedId] = useState<string | null>(null);
     const [copiedId, setCopiedId] = useState<string | null>(null);
+    const [tipsOpen, setTipsOpen] = useState(false);
+    const [coachOpen, setCoachOpen] = useState(false);
+    const [coachStep, setCoachStep] = useState(0);
+    const [coachSetting, setCoachSetting] = useState('');
+    const [coachSpecialty, setCoachSpecialty] = useState('');
+    const [coachTask, setCoachTask] = useState('');
+    const [coachFormat, setCoachFormat] = useState('');
+    const [coachCopied, setCoachCopied] = useState(false);
     const headerRef = useRef<HTMLDivElement>(null);
     const searchRef = useRef<HTMLDivElement>(null);
     const gridRef = useRef<HTMLDivElement>(null);
@@ -59,6 +143,40 @@ export default function PromptLibrary() {
         setTimeout(() => setCopiedId(null), 2000);
     };
 
+    const generatedPrompt = useMemo(() => {
+        if (!coachSetting && !coachSpecialty && !coachTask && !coachFormat) return '';
+        const parts: string[] = [];
+        if (coachSpecialty) {
+            parts.push(`You are an ASHA-certified speech-language pathologist specializing in ${coachSpecialty}.`);
+        } else {
+            parts.push('You are an ASHA-certified speech-language pathologist.');
+        }
+        if (coachSetting) {
+            parts.push(`You work in a ${coachSetting} setting.`);
+        }
+        if (coachTask) {
+            parts.push(`\nTask: ${coachTask}`);
+        }
+        parts.push('\nInclude:');
+        parts.push('1. [Specific detail or section you need]');
+        parts.push('2. [Another specific requirement]');
+        parts.push('3. [Data, evidence, or framework to reference]');
+        parts.push('\nPatient/Client Profile:');
+        parts.push('[De-identified details — age, diagnosis, relevant history]');
+        if (coachFormat) {
+            parts.push(`\nFormat the output as: ${coachFormat}`);
+        }
+        parts.push('\nIMPORTANT: Do not include any real patient names, dates of birth, or identifying information in your response.');
+        return parts.join('\n');
+    }, [coachSetting, coachSpecialty, coachTask, coachFormat]);
+
+    const copyCoachPrompt = async () => {
+        if (!generatedPrompt) return;
+        await navigator.clipboard.writeText(generatedPrompt);
+        setCoachCopied(true);
+        setTimeout(() => setCoachCopied(false), 2000);
+    };
+
     return (
         <div className="min-h-screen bg-[var(--color-bg)]">
             {/* Top bar */}
@@ -76,7 +194,7 @@ export default function PromptLibrary() {
 
             <div className="container-wide pt-28 pb-24">
                 {/* Header */}
-                <div ref={headerRef} className="max-w-3xl mb-12">
+                <div ref={headerRef} className="max-w-3xl mb-8">
                     <div className="inline-flex items-center gap-2 mb-6">
                         <div className="w-8 h-[2px] bg-[var(--color-primary)]" />
                         <span className="font-mono text-sm font-bold tracking-widest uppercase text-[var(--color-primary)]">
@@ -92,6 +210,178 @@ export default function PromptLibrary() {
                     </p>
                     <div className="mt-4 font-mono text-sm text-[var(--color-secondary)] font-bold">
                         {prompts.length} prompts available
+                    </div>
+                </div>
+
+                {/* HIPAA Banner */}
+                <div className="mb-8 p-4 bg-[var(--color-primary)]/10 border-[length:var(--border-width-base)] border-[var(--color-primary)]/30 rounded-[var(--radius-md)] flex items-start gap-3">
+                    <ShieldAlert className="w-5 h-5 text-[var(--color-primary)] shrink-0 mt-0.5" />
+                    <div>
+                        <p className="font-display font-bold text-[var(--color-text)] text-sm">
+                            Do not paste PHI into any AI tool.
+                        </p>
+                        <p className="text-sm text-[var(--color-text-muted)] font-body mt-1">
+                            De-identify all patient data before use. Replace names, dates, MRNs, and facility names with placeholders like [PATIENT], [DATE], [FACILITY].
+                        </p>
+                    </div>
+                </div>
+
+                {/* Prompt Coach Section */}
+                <div className="mb-8 space-y-4">
+                    {/* Build Your Own Prompt */}
+                    <div className="border-[length:var(--border-width-base)] border-[var(--color-border)] rounded-[var(--radius-xl)] overflow-hidden bg-[var(--color-secondary)]/5">
+                        <button
+                            onClick={() => setCoachOpen(!coachOpen)}
+                            className="w-full flex items-center justify-between p-5 text-left hover:bg-[var(--color-secondary)]/10 transition-colors"
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-secondary)] flex items-center justify-center">
+                                    <Wand2 className="w-5 h-5 text-white" />
+                                </div>
+                                <div>
+                                    <h2 className="font-display font-bold text-[var(--color-text)] text-lg">Build Your Own Prompt</h2>
+                                    <p className="text-sm text-[var(--color-text-muted)] font-body">4-step guided builder for custom clinical prompts</p>
+                                </div>
+                            </div>
+                            {coachOpen ? <ChevronUp className="w-5 h-5 text-[var(--color-text-muted)]" /> : <ChevronDown className="w-5 h-5 text-[var(--color-text-muted)]" />}
+                        </button>
+
+                        {coachOpen && (
+                            <div className="p-5 pt-0 space-y-6">
+                                {/* Steps */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {/* Step 1: Setting */}
+                                    <div>
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <span className="w-6 h-6 rounded-full bg-[var(--color-primary)] text-white text-xs font-bold flex items-center justify-center">1</span>
+                                            <span className="font-display font-bold text-sm text-[var(--color-text)]">Clinical Setting</span>
+                                        </div>
+                                        <select
+                                            value={coachSetting}
+                                            onChange={e => { setCoachSetting(e.target.value); setCoachStep(Math.max(coachStep, 1)); }}
+                                            className="w-full px-3 py-2.5 bg-[var(--color-bg)] border-[length:var(--border-width-base)] border-[var(--color-border)] rounded-[var(--radius-md)] font-body text-sm text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]"
+                                        >
+                                            <option value="">Select a setting...</option>
+                                            {SETTINGS.map(s => <option key={s} value={s}>{s}</option>)}
+                                        </select>
+                                    </div>
+
+                                    {/* Step 2: Specialty */}
+                                    <div>
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <span className="w-6 h-6 rounded-full bg-[var(--color-primary)] text-white text-xs font-bold flex items-center justify-center">2</span>
+                                            <span className="font-display font-bold text-sm text-[var(--color-text)]">Specialty Area</span>
+                                        </div>
+                                        <select
+                                            value={coachSpecialty}
+                                            onChange={e => { setCoachSpecialty(e.target.value); setCoachStep(Math.max(coachStep, 2)); }}
+                                            className="w-full px-3 py-2.5 bg-[var(--color-bg)] border-[length:var(--border-width-base)] border-[var(--color-border)] rounded-[var(--radius-md)] font-body text-sm text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]"
+                                        >
+                                            <option value="">Select a specialty...</option>
+                                            {SPECIALTIES.map(s => <option key={s} value={s}>{s}</option>)}
+                                        </select>
+                                    </div>
+
+                                    {/* Step 3: Task */}
+                                    <div>
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <span className="w-6 h-6 rounded-full bg-[var(--color-primary)] text-white text-xs font-bold flex items-center justify-center">3</span>
+                                            <span className="font-display font-bold text-sm text-[var(--color-text)]">Task</span>
+                                        </div>
+                                        <select
+                                            value={coachTask}
+                                            onChange={e => { setCoachTask(e.target.value); setCoachStep(Math.max(coachStep, 3)); }}
+                                            className="w-full px-3 py-2.5 bg-[var(--color-bg)] border-[length:var(--border-width-base)] border-[var(--color-border)] rounded-[var(--radius-md)] font-body text-sm text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]"
+                                        >
+                                            <option value="">Select a task...</option>
+                                            {TASKS.map(t => <option key={t} value={t}>{t}</option>)}
+                                        </select>
+                                    </div>
+
+                                    {/* Step 4: Output Format */}
+                                    <div>
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <span className="w-6 h-6 rounded-full bg-[var(--color-primary)] text-white text-xs font-bold flex items-center justify-center">4</span>
+                                            <span className="font-display font-bold text-sm text-[var(--color-text)]">Output Format</span>
+                                        </div>
+                                        <select
+                                            value={coachFormat}
+                                            onChange={e => { setCoachFormat(e.target.value); setCoachStep(4); }}
+                                            className="w-full px-3 py-2.5 bg-[var(--color-bg)] border-[length:var(--border-width-base)] border-[var(--color-border)] rounded-[var(--radius-md)] font-body text-sm text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]"
+                                        >
+                                            <option value="">Select a format...</option>
+                                            {OUTPUT_FORMATS.map(f => <option key={f} value={f}>{f}</option>)}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                {/* Generated Prompt Preview */}
+                                {generatedPrompt && (
+                                    <div className="space-y-3">
+                                        <div className="flex items-center justify-between">
+                                            <span className="font-display font-bold text-sm text-[var(--color-text)]">Your Generated Prompt</span>
+                                            <button
+                                                onClick={copyCoachPrompt}
+                                                className={`flex items-center gap-1.5 text-sm font-mono font-bold transition-colors ${
+                                                    coachCopied
+                                                        ? 'text-[var(--color-secondary)]'
+                                                        : 'text-[var(--color-primary)] hover:text-[var(--color-primary-hover)]'
+                                                }`}
+                                            >
+                                                {coachCopied ? <><Check className="w-4 h-4" /> Copied!</> : <><Copy className="w-4 h-4" /> Copy Prompt</>}
+                                            </button>
+                                        </div>
+                                        <div className="p-4 bg-[var(--color-bg)] border-[length:var(--border-width-base)] border-[var(--color-border)] rounded-[var(--radius-md)]">
+                                            <pre className="whitespace-pre-wrap font-mono text-sm text-[var(--color-text)] leading-relaxed">
+                                                {generatedPrompt}
+                                            </pre>
+                                        </div>
+                                        <p className="text-xs text-[var(--color-text-muted)] font-body">
+                                            Customize the bracketed sections with your de-identified clinical details before pasting into an AI tool.
+                                        </p>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Prompting Tips */}
+                    <div className="border-[length:var(--border-width-base)] border-[var(--color-border)] rounded-[var(--radius-xl)] overflow-hidden">
+                        <button
+                            onClick={() => setTipsOpen(!tipsOpen)}
+                            className="w-full flex items-center justify-between p-5 text-left hover:bg-[var(--color-surface)] transition-colors"
+                        >
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-[var(--radius-md)] bg-[var(--color-text)] flex items-center justify-center">
+                                    <Lightbulb className="w-5 h-5 text-[var(--color-primary)]" />
+                                </div>
+                                <div>
+                                    <h2 className="font-display font-bold text-[var(--color-text)] text-lg">Prompting Tips for Clinicians</h2>
+                                    <p className="text-sm text-[var(--color-text-muted)] font-body">6 strategies for getting better AI outputs in clinical work</p>
+                                </div>
+                            </div>
+                            {tipsOpen ? <ChevronUp className="w-5 h-5 text-[var(--color-text-muted)]" /> : <ChevronDown className="w-5 h-5 text-[var(--color-text-muted)]" />}
+                        </button>
+
+                        {tipsOpen && (
+                            <div className="p-5 pt-0">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {PROMPTING_TIPS.map((tip, i) => (
+                                        <div key={i} className="p-4 bg-[var(--color-surface)] rounded-[var(--radius-md)] border border-[var(--color-border)]/30">
+                                            <div className="flex items-start gap-3">
+                                                <span className="w-6 h-6 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                                                    {i + 1}
+                                                </span>
+                                                <div>
+                                                    <h3 className="font-display font-bold text-sm text-[var(--color-text)] mb-1">{tip.title}</h3>
+                                                    <p className="text-sm text-[var(--color-text-muted)] font-body leading-relaxed">{tip.description}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -160,17 +450,28 @@ export default function PromptLibrary() {
                     {filtered.map(prompt => {
                         const isExpanded = expandedId === prompt.id;
                         const isCopied = copiedId === prompt.id;
+                        const level = (prompt as { level?: string }).level;
 
                         return (
                             <div
                                 key={prompt.id}
                                 className={`card-solid p-6 flex flex-col ${isExpanded ? 'md:col-span-2 xl:col-span-3' : ''}`}
                             >
-                                {/* Category badge */}
-                                <div className="mb-3">
+                                {/* Category badge + Level badge */}
+                                <div className="mb-3 flex items-center gap-2 flex-wrap">
                                     <span className="badge-mono">
                                         {prompt.category}
                                     </span>
+                                    {level === 'beginner' && (
+                                        <span className="px-2 py-0.5 text-xs font-mono font-bold bg-[var(--color-secondary)]/15 text-[var(--color-secondary)] border border-[var(--color-secondary)]/30 rounded-[var(--radius-sm)]">
+                                            Beginner-friendly
+                                        </span>
+                                    )}
+                                    {level === 'advanced' && (
+                                        <span className="px-2 py-0.5 text-xs font-mono font-bold bg-[var(--color-primary)]/15 text-[var(--color-primary)] border border-[var(--color-primary)]/30 rounded-[var(--radius-sm)]">
+                                            Advanced
+                                        </span>
+                                    )}
                                 </div>
 
                                 {/* Title */}
@@ -197,10 +498,19 @@ export default function PromptLibrary() {
 
                                 {/* Expanded prompt text */}
                                 {isExpanded && (
-                                    <div className="mb-4 p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-md)] overflow-x-auto">
-                                        <pre className="whitespace-pre-wrap font-mono text-sm text-[var(--color-text)] leading-relaxed">
-                                            {prompt.prompt}
-                                        </pre>
+                                    <div className="mb-4 space-y-3">
+                                        {/* HIPAA reminder inside expanded card */}
+                                        <div className="p-3 bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/20 rounded-[var(--radius-sm)] flex items-center gap-2">
+                                            <ShieldAlert className="w-4 h-4 text-[var(--color-primary)] shrink-0" />
+                                            <p className="text-xs text-[var(--color-text-muted)] font-body">
+                                                Remember: De-identify all patient data before pasting into any AI tool.
+                                            </p>
+                                        </div>
+                                        <div className="p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-md)] overflow-x-auto">
+                                            <pre className="whitespace-pre-wrap font-mono text-sm text-[var(--color-text)] leading-relaxed">
+                                                {prompt.prompt}
+                                            </pre>
+                                        </div>
                                     </div>
                                 )}
 

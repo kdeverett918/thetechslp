@@ -676,7 +676,7 @@ export default function Playground() {
             TRY IT YOURSELF
           </h2>
           <p className="text-lg md:text-xl text-[var(--color-text-muted)] font-body leading-relaxed">
-            Mini-games I built to show what interactive web apps can feel like. Go ahead — try to beat your high score.
+            Try the interactive demos below — built to show what clinical apps can feel like when UX is actually designed for engagement.
           </p>
         </div>
 
