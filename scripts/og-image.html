@@ -11,7 +11,6 @@
     width: 1200px;
     height: 630px;
     overflow: hidden;
-    font-family: 'DM Sans', sans-serif;
   }
 
   .card {
@@ -21,21 +20,11 @@
     position: relative;
     overflow: hidden;
     display: flex;
+    align-items: center;
   }
 
-  /* ── Left column ── */
-  .left {
-    width: 55%;
-    padding: 52px 56px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    z-index: 2;
-  }
-
-  .left::before {
-    content: '';
+  /* Subtle grid */
+  .grid-bg {
     position: absolute;
     inset: 0;
     background-image:
@@ -45,34 +34,116 @@
     pointer-events: none;
   }
 
-  .mono-label {
+  /* Dark right panel — just a clean block */
+  .dark-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 42%;
+    background: #2d2a26;
+  }
+
+  .dark-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(143,165,150,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(143,165,150,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Warm glow */
+  .glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(208,94,65,0.12) 0%, transparent 70%);
+    top: 50%;
+    right: 15%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+  }
+
+  /* Stats inside dark panel */
+  .stats {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 42%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    z-index: 2;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #d05e41;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
     font-family: 'Space Mono', monospace;
     font-size: 11px;
-    letter-spacing: 2.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(245,240,235,0.4);
+  }
+
+  .stat-divider {
+    width: 40px;
+    height: 1px;
+    background: rgba(143,165,150,0.2);
+  }
+
+  /* Content — left side */
+  .content {
+    position: relative;
+    z-index: 5;
+    padding: 60px 64px;
+    max-width: 680px;
+  }
+
+  .mono-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: #d05e41;
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 28px;
+    gap: 12px;
+    margin-bottom: 24px;
   }
 
   .mono-label::before {
     content: '';
     display: block;
-    width: 24px;
+    width: 28px;
     height: 2px;
     background: #d05e41;
   }
 
   h1 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 72px;
-    line-height: 0.93;
+    font-size: 92px;
+    line-height: 0.9;
     font-weight: 700;
     color: #2d2a26;
-    letter-spacing: -3px;
-    margin-bottom: 16px;
+    letter-spacing: -4px;
+    margin-bottom: 20px;
   }
 
   h1 span {
@@ -81,46 +152,11 @@
 
   .sub {
     font-family: 'DM Sans', sans-serif;
-    font-size: 17px;
+    font-size: 20px;
     color: #6b665c;
-    line-height: 1.55;
-    max-width: 400px;
+    line-height: 1.5;
     margin-bottom: 28px;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-  }
-
-  .tag {
-    font-family: 'Space Mono', monospace;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 6px 12px;
-    border-radius: 3px;
-    border: 2px solid;
-  }
-
-  .tag-terra {
-    color: #d05e41;
-    border-color: #d05e41;
-    background: rgba(208,94,65,0.06);
-  }
-
-  .tag-sage {
-    color: #5a7c64;
-    border-color: #8fa596;
-    background: rgba(143,165,150,0.08);
-  }
-
-  .tag-dark {
-    color: #2d2a26;
-    border-color: #2d2a26;
-    background: rgba(45,42,38,0.04);
+    max-width: 460px;
   }
 
   .bottom-row {
@@ -128,8 +164,8 @@
     align-items: center;
     gap: 12px;
     font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 1px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
     color: #8a8580;
   }
 
@@ -138,140 +174,6 @@
     height: 4px;
     background: #d05e41;
     border-radius: 50%;
-  }
-
-  /* ── Right column ── */
-  .right {
-    width: 45%;
-    position: relative;
-    background: #2d2a26;
-    overflow: hidden;
-  }
-
-  .grid-overlay {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(143,165,150,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(143,165,150,0.06) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-
-  .glow {
-    position: absolute;
-    width: 340px;
-    height: 340px;
-    background: radial-gradient(circle, rgba(208,94,65,0.15) 0%, transparent 70%);
-    top: 45%;
-    left: 45%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-  }
-
-  /* Code block visual */
-  .code-block {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    right: 40px;
-    bottom: 100px;
-    background: rgba(245,240,235,0.03);
-    border: 1px solid rgba(143,165,150,0.12);
-    border-radius: 8px;
-    padding: 28px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    z-index: 2;
-  }
-
-  /* Window dots */
-  .window-dots {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 12px;
-  }
-
-  .window-dots span {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-  }
-
-  .dot-red { background: #d05e41; }
-  .dot-sage { background: #8fa596; }
-  .dot-muted { background: rgba(245,240,235,0.15); }
-
-  .code-line {
-    height: 3px;
-    border-radius: 2px;
-  }
-
-  .cl-primary { background: rgba(208,94,65,0.5); }
-  .cl-sage { background: rgba(143,165,150,0.4); }
-  .cl-muted { background: rgba(245,240,235,0.07); }
-
-  /* Indent groups */
-  .code-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .code-indent {
-    padding-left: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  /* Sage block accent peeking from behind */
-  .sage-accent {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 180px;
-    height: 200px;
-    background: #8fa596;
-    border-radius: 6px;
-    opacity: 0.15;
-    transform: rotate(3deg);
-  }
-
-  /* Bottom stat modules */
-  .stats {
-    position: absolute;
-    bottom: 32px;
-    left: 40px;
-    right: 40px;
-    display: flex;
-    gap: 12px;
-    z-index: 2;
-  }
-
-  .stat {
-    flex: 1;
-    background: rgba(245,240,235,0.04);
-    border: 1px solid rgba(143,165,150,0.12);
-    border-radius: 6px;
-    padding: 12px 14px;
-    text-align: center;
-  }
-
-  .stat-num {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: #d05e41;
-    margin-bottom: 2px;
-  }
-
-  .stat-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 8px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: rgba(245,240,235,0.4);
   }
 
   /* Accent lines */
@@ -298,76 +200,38 @@
 </head>
 <body>
 <div class="card">
+  <div class="grid-bg"></div>
   <div class="top-line"></div>
   <div class="bottom-line"></div>
 
-  <!-- LEFT -->
-  <div class="left">
-    <div>
-      <div class="mono-label">Clinical Technology Studio</div>
-      <h1>The Tech<br><span>SLP</span></h1>
-      <p class="sub">Where clinical expertise meets modern technology. Tools, resources, and software built by a clinician.</p>
-      <div class="tags">
-        <span class="tag tag-terra">React + TypeScript</span>
-        <span class="tag tag-sage">Clinical UX</span>
-        <span class="tag tag-dark">AI Integration</span>
-        <span class="tag tag-terra">HIPAA-Ready</span>
-      </div>
+  <div class="dark-panel"></div>
+  <div class="glow"></div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">40+</div>
+      <div class="stat-label">Prompts</div>
     </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Projects</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num">11+</div>
+      <div class="stat-label">Domains</div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="mono-label">Clinical Technology Studio</div>
+    <h1>The Tech<br><span>SLP</span></h1>
+    <p class="sub">Where clinical expertise meets modern technology.</p>
     <div class="bottom-row">
       <span>thetechslp.com</span>
       <div class="bottom-dot"></div>
       <span>Kristine Deverett, CCC-SLP</span>
-    </div>
-  </div>
-
-  <!-- RIGHT -->
-  <div class="right">
-    <div class="grid-overlay"></div>
-    <div class="glow"></div>
-    <div class="sage-accent"></div>
-
-    <div class="code-block">
-      <div class="window-dots">
-        <span class="dot-red"></span>
-        <span class="dot-sage"></span>
-        <span class="dot-muted"></span>
-      </div>
-      <div class="code-group">
-        <div class="code-line cl-primary" style="width: 140px;"></div>
-        <div class="code-indent">
-          <div class="code-line cl-muted" style="width: 200px;"></div>
-          <div class="code-line cl-sage" style="width: 120px;"></div>
-          <div class="code-line cl-muted" style="width: 170px;"></div>
-        </div>
-        <div class="code-line cl-primary" style="width: 100px;"></div>
-        <div class="code-indent">
-          <div class="code-line cl-muted" style="width: 240px;"></div>
-          <div class="code-line cl-sage" style="width: 80px;"></div>
-          <div class="code-line cl-muted" style="width: 160px;"></div>
-          <div class="code-line cl-primary" style="width: 130px;"></div>
-        </div>
-        <div class="code-line cl-sage" style="width: 110px;"></div>
-        <div class="code-indent">
-          <div class="code-line cl-muted" style="width: 190px;"></div>
-          <div class="code-line cl-muted" style="width: 150px;"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-num">40+</div>
-        <div class="stat-label">Prompts</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">6</div>
-        <div class="stat-label">Projects</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">11+</div>
-        <div class="stat-label">Domains</div>
-      </div>
     </div>
   </div>
 </div>
