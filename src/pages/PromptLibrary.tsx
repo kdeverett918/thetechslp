@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { Link } from 'react-router';
 import { ArrowLeft, Search, Copy, Check, ChevronDown, ChevronUp, X, ShieldAlert, Wand2, Lightbulb } from 'lucide-react';
 import { createReveal } from '../utils/animations';
+import { buildSearchQuery, matchesSearchQuery } from '../utils/promptSearch';
 import prompts from '../data/prompts.json';
 
 const categories = [...new Set(prompts.map(p => p.category))];
@@ -82,12 +83,6 @@ const PROMPTING_TIPS = [
     },
 ];
 
-const normalizeSearchText = (value: string) =>
-    value
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .toLowerCase();
-
 export default function PromptLibrary() {
     const [search, setSearch] = useState('');
     const [activeCategories, setActiveCategories] = useState<string[]>([]);
@@ -124,20 +119,18 @@ export default function PromptLibrary() {
     }, [search, activeCategories]);
 
     const filtered = useMemo(() => {
-        const normalizedQuery = normalizeSearchText(search.trim());
-        const queryTerms = normalizedQuery.split(/\s+/).filter(Boolean);
+        const searchQuery = buildSearchQuery(search.trim());
 
         return prompts.filter(p => {
-            const searchableText = normalizeSearchText([
+            const searchableText = [
                 p.title,
                 p.description,
                 p.category,
                 p.prompt,
                 p.tags.join(' '),
-            ].join(' '));
+            ].join(' ');
 
-            const matchesSearch = queryTerms.length === 0 ||
-                queryTerms.every(term => searchableText.includes(term));
+            const matchesSearch = matchesSearchQuery(searchQuery, searchableText);
             const matchesCategory = activeCategories.length === 0 ||
                 activeCategories.includes(p.category);
 
@@ -402,10 +395,11 @@ export default function PromptLibrary() {
                 {/* Search + Filters */}
                 <div ref={searchRef} className="mb-12 space-y-6">
                     {/* Search bar */}
-                    <div className="relative max-w-xl">
+                    <div className="relative w-full max-w-4xl">
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--color-text-muted)]" />
                         <input
                             type="text"
+                            aria-label="Search prompts"
                             placeholder="Search the full prompt library (title, tags, and full prompt text)..."
                             value={search}
                             onChange={e => setSearch(e.target.value)}
