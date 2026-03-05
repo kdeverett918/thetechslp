@@ -3,236 +3,296 @@
 <head>
 <meta charset="utf-8">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap');
 
   body {
     width: 1200px;
     height: 630px;
     overflow: hidden;
+    font-family: 'DM Sans', sans-serif;
   }
 
   .card {
     width: 1200px;
     height: 630px;
-    background: #f5f0eb;
+    background:
+      radial-gradient(900px 460px at 80% 54%, rgba(220, 101, 65, 0.24), transparent 62%),
+      linear-gradient(135deg, #0b1016 0%, #101720 45%, #121821 100%);
+    color: #edf2f7;
     position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
   }
 
-  /* Subtle grid */
-  .grid-bg {
+  .card::before {
+    content: '';
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(to right, rgba(26,24,22,0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(26,24,22,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
+      linear-gradient(to right, rgba(138, 156, 173, 0.11) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(138, 156, 173, 0.11) 1px, transparent 1px);
+    background-size: 56px 56px;
+    opacity: 0.23;
     pointer-events: none;
   }
 
-  /* Dark right panel — just a clean block */
-  .dark-panel {
+  .top-line {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 42%;
-    background: #2d2a26;
-  }
-
-  .dark-panel::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(143,165,150,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(143,165,150,0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-
-  /* Warm glow */
-  .glow {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(208,94,65,0.12) 0%, transparent 70%);
-    top: 50%;
-    right: 15%;
-    transform: translateY(-50%);
-    border-radius: 50%;
-  }
-
-  /* Stats inside dark panel */
-  .stats {
-    position: absolute;
+    left: 0;
     right: 0;
     top: 0;
-    bottom: 0;
-    width: 42%;
+    height: 5px;
+    background: linear-gradient(90deg, #da6440 0%, #ff8f68 40%, #82b8a8 100%);
+  }
+
+  .layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.04fr 0.96fr;
+    gap: 28px;
+    height: 100%;
+    padding: 54px 56px 42px;
+  }
+
+  .left {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+  }
+
+  .kicker {
+    display: inline-flex;
     align-items: center;
-    gap: 28px;
-    z-index: 2;
-  }
-
-  .stat {
-    text-align: center;
-  }
-
-  .stat-num {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 48px;
-    font-weight: 700;
-    color: #d05e41;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-
-  .stat-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(245,240,235,0.4);
-  }
-
-  .stat-divider {
-    width: 40px;
-    height: 1px;
-    background: rgba(143,165,150,0.2);
-  }
-
-  /* Content — left side */
-  .content {
-    position: relative;
-    z-index: 5;
-    padding: 60px 64px;
-    max-width: 680px;
-  }
-
-  .mono-label {
-    font-family: 'Space Mono', monospace;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 13px;
-    letter-spacing: 3px;
+    letter-spacing: 2.6px;
     text-transform: uppercase;
-    color: #d05e41;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
+    color: #9fb3c8;
+    margin-bottom: 20px;
   }
 
-  .mono-label::before {
+  .kicker::before {
     content: '';
-    display: block;
-    width: 28px;
+    width: 34px;
     height: 2px;
-    background: #d05e41;
+    background: #da6440;
   }
 
   h1 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 92px;
-    line-height: 0.9;
-    font-weight: 700;
-    color: #2d2a26;
+    font-size: 110px;
+    line-height: 0.86;
     letter-spacing: -4px;
-    margin-bottom: 20px;
+    color: #f2f6fa;
+    margin-bottom: 24px;
   }
 
   h1 span {
-    color: #d05e41;
+    color: #ef6b47;
   }
 
   .sub {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 20px;
-    color: #6b665c;
-    line-height: 1.5;
-    margin-bottom: 28px;
-    max-width: 460px;
+    font-size: 36px;
+    line-height: 1.1;
+    color: #9fb3c7;
+    margin-bottom: 24px;
+    max-width: 590px;
   }
 
-  .bottom-row {
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .tag {
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(157, 177, 197, 0.34);
+    background: rgba(16, 23, 31, 0.75);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #d3dee8;
+    white-space: nowrap;
+  }
+
+  .tag.accent {
+    border-color: rgba(239, 107, 71, 0.75);
+    color: #ffd2c5;
+  }
+
+  .footer {
+    margin-top: auto;
     display: flex;
     align-items: center;
     gap: 12px;
-    font-family: 'Space Mono', monospace;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
-    letter-spacing: 1.5px;
-    color: #8a8580;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #9bb0c4;
   }
 
-  .bottom-dot {
-    width: 4px;
-    height: 4px;
-    background: #d05e41;
+  .footer .dot {
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
+    background: #ef6b47;
   }
 
-  /* Accent lines */
-  .top-line {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #d05e41, #e07a5f 50%, #8fa596 100%);
-    z-index: 10;
+  .right {
+    border-radius: 22px;
+    border: 1px solid rgba(157, 177, 197, 0.26);
+    background: rgba(8, 14, 22, 0.52);
+    box-shadow: inset 0 0 0 1px rgba(239, 107, 71, 0.08);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
   }
 
-  .bottom-line {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #8fa596, #d05e41 100%);
-    z-index: 10;
+  .window-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(157, 177, 197, 0.2);
+  }
+
+  .window-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #ef6b47;
+  }
+
+  .window-dot.mid {
+    background: #8ab5a5;
+  }
+
+  .window-dot.low {
+    background: #576779;
+  }
+
+  .code {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding-top: 4px;
+  }
+
+  .line {
+    height: 4px;
+    border-radius: 4px;
+    background: rgba(147, 166, 185, 0.26);
+  }
+
+  .line.accent {
+    background: rgba(239, 107, 71, 0.82);
+  }
+
+  .line.green {
+    background: rgba(138, 181, 169, 0.64);
+  }
+
+  .metrics {
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .metric {
+    border-radius: 14px;
+    border: 1px solid rgba(157, 177, 197, 0.22);
+    background: rgba(13, 20, 30, 0.85);
+    padding: 12px 10px;
+    text-align: center;
+  }
+
+  .metric strong {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 35px;
+    line-height: 1;
+    color: #f37a56;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+  }
+
+  .metric span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #93a8bc;
   }
 </style>
 </head>
 <body>
 <div class="card">
-  <div class="grid-bg"></div>
   <div class="top-line"></div>
-  <div class="bottom-line"></div>
 
-  <div class="dark-panel"></div>
-  <div class="glow"></div>
+  <div class="layout">
+    <section class="left">
+      <div class="kicker">Clinical Technology Studio</div>
+      <h1>The Tech<br><span>SLP</span></h1>
+      <p class="sub">AI tools and software built for speech-language pathology.</p>
 
-  <div class="stats">
-    <div class="stat">
-      <div class="stat-num">40+</div>
-      <div class="stat-label">Prompts</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat">
-      <div class="stat-num">6</div>
-      <div class="stat-label">Projects</div>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat">
-      <div class="stat-num">11+</div>
-      <div class="stat-label">Domains</div>
-    </div>
-  </div>
+      <div class="tags">
+        <span class="tag accent">Clinical AI</span>
+        <span class="tag">HIPAA-Conscious</span>
+        <span class="tag">UX for Healthcare</span>
+      </div>
 
-  <div class="content">
-    <div class="mono-label">Clinical Technology Studio</div>
-    <h1>The Tech<br><span>SLP</span></h1>
-    <p class="sub">Where clinical expertise meets modern technology.</p>
-    <div class="bottom-row">
-      <span>thetechslp.com</span>
-      <div class="bottom-dot"></div>
-      <span>Kristine Everett, CCC-SLP</span>
-    </div>
+      <div class="footer">
+        <span>thetechslp.com</span>
+        <span class="dot"></span>
+        <span>Kristine Everett, CCC-SLP</span>
+      </div>
+    </section>
+
+    <section class="right">
+      <div class="window-head">
+        <span class="window-dot"></span>
+        <span class="window-dot mid"></span>
+        <span class="window-dot low"></span>
+      </div>
+
+      <div class="code">
+        <div class="line accent" style="width: 72%;"></div>
+        <div class="line" style="width: 94%;"></div>
+        <div class="line green" style="width: 56%;"></div>
+        <div class="line" style="width: 86%;"></div>
+        <div class="line accent" style="width: 66%;"></div>
+        <div class="line" style="width: 92%;"></div>
+        <div class="line green" style="width: 48%;"></div>
+      </div>
+
+      <div class="metrics">
+        <div class="metric">
+          <strong>40+</strong>
+          <span>Prompts</span>
+        </div>
+        <div class="metric">
+          <strong>6</strong>
+          <span>Projects</span>
+        </div>
+        <div class="metric">
+          <strong>11+</strong>
+          <span>Domains</span>
+        </div>
+      </div>
+    </section>
   </div>
 </div>
 </body>
