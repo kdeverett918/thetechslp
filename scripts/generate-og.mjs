@@ -3,8 +3,11 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const outputPath = path.join(__dirname, '..', 'public', 'og-image.png');
 const captureUrl = process.argv[2] || process.env.OG_CAPTURE_URL || 'http://127.0.0.1:4178/';
+const outputPathArg = process.argv[3] || process.env.OG_OUTPUT_PATH;
+const outputPath = outputPathArg
+  ? path.resolve(outputPathArg)
+  : path.join(__dirname, '..', 'public', 'og-image.png');
 
 const browser = await chromium.launch();
 const page = await browser.newPage({

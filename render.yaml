@@ -16,5 +16,11 @@ services:
         value: strict-origin-when-cross-origin
     routes:
       - type: rewrite
+        source: /prompts
+        destination: /prompts/index.html
+      - type: rewrite
+        source: /prompts/
+        destination: /prompts/index.html
+      - type: rewrite
         source: /*
         destination: /index.html
