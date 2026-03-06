@@ -33,17 +33,17 @@ export default function Hero() {
             <div className="container-wide relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                 {/* Typographic Hero Block */}
                 <div className="lg:col-span-7 flex flex-col justify-center space-y-8">
-                    <div className="space-y-2 overflow-hidden">
-                        <h1 ref={title1Ref} className="text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.1] font-display font-bold text-[var(--color-text)] tracking-tighter mix-blend-multiply">
+                    <h1 className="space-y-2 overflow-hidden text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.1] font-display font-bold tracking-tighter mix-blend-multiply">
+                        <span ref={title1Ref} className="block text-[var(--color-text)]">
                             CLINICAL DEPTH.
-                        </h1>
-                        <h1 ref={title2Ref} className="text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.1] font-display font-bold text-[var(--color-primary)] tracking-tighter mix-blend-multiply">
+                        </span>
+                        <span ref={title2Ref} className="block text-[var(--color-primary)]">
                             SYSTEMIC SCALE.
-                        </h1>
-                    </div>
+                        </span>
+                    </h1>
 
                     <p ref={subtitleRef} className="text-lg md:text-xl text-[var(--color-text)] font-body max-w-3xl leading-relaxed">
-                        Speech-Language Pathologist turned Full Stack Developer. I build the next generation of digital tools for clinicians and researchers — interactive applications, agentic AI systems, and purpose-built healthcare technology. No templates. No compromises.
+                        Speech-Language Pathologist turned Full Stack Developer. I design and build custom software for clinic teams, university programs, and healthcare organizations: internal tools, educational platforms, and carefully scoped AI workflows that reduce friction without pretending automation is clinical judgment.
                     </p>
 
                     <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 pt-4">

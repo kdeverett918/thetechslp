@@ -10,7 +10,7 @@ export default function Footer() {
 
                 <div className="flex gap-8 font-mono text-sm uppercase tracking-widest text-[var(--color-secondary)]">
                     <a href="mailto:kristine@thetechslp.com" className="hover:text-[var(--color-primary)] transition-colors">kristine@thetechslp.com</a>
-                    <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-[var(--color-primary)] transition-colors">LinkedIn</a>
+                    <a href="/prompts" className="hover:text-[var(--color-primary)] transition-colors">Prompt Library</a>
                 </div>
             </div>
 

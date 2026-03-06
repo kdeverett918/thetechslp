@@ -9,6 +9,7 @@ const navLinks = [
     { href: '#about', label: 'About' },
     { href: '#services', label: 'Services' },
     { href: '#portfolio', label: 'Portfolio' },
+    { href: '/prompts', label: 'Prompt Library' },
     { href: '#playground', label: 'Demos' },
     { href: '#contact', label: 'Contact' },
 ];
@@ -21,7 +22,13 @@ export default function Navigation() {
     const location = useLocation();
     const isHome = location.pathname === '/';
 
-    const resolveHref = (hash: string) => isHome ? hash : `/${hash}`;
+    const resolveHref = (href: string) => {
+        if (href.startsWith('#')) {
+            return isHome ? href : `/${href}`;
+        }
+
+        return href;
+    };
 
     const closeMenu = useCallback(() => setIsOpen(false), []);
 

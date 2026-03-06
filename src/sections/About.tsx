@@ -44,6 +44,21 @@ export default function About() {
                                 </p>
                             </div>
 
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <div className="rounded-[var(--radius-md)] border border-[var(--color-bg)]/20 bg-[var(--color-bg)]/5 p-4">
+                                    <p className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--color-primary)] mb-2">Best Fit</p>
+                                    <p className="text-sm text-[var(--color-bg)]/80 font-body">Clinic teams, university programs, and clinician-founded health tech products.</p>
+                                </div>
+                                <div className="rounded-[var(--radius-md)] border border-[var(--color-bg)]/20 bg-[var(--color-bg)]/5 p-4">
+                                    <p className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--color-primary)] mb-2">Project Types</p>
+                                    <p className="text-sm text-[var(--color-bg)]/80 font-body">Workflow tools, teaching platforms, internal dashboards, and privacy-sensitive AI pilots.</p>
+                                </div>
+                                <div className="rounded-[var(--radius-md)] border border-[var(--color-bg)]/20 bg-[var(--color-bg)]/5 p-4">
+                                    <p className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--color-primary)] mb-2">Ways To Work</p>
+                                    <p className="text-sm text-[var(--color-bg)]/80 font-body">Strategy, UX audits, rapid prototypes, or full product builds with implementation support.</p>
+                                </div>
+                            </div>
+
                             <div className="pt-4">
                                 <a href="#contact" className="btn-primary bg-[var(--color-surface)] text-[var(--color-text)] hover:bg-[var(--color-bg)] border-[var(--color-bg)] shadow-none">
                                     Let's Collaborate

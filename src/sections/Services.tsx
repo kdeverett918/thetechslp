@@ -7,7 +7,7 @@ const services = [
         icon: MonitorPlay,
         title: 'Clinical UX/UI Design',
         accent: 'var(--color-primary)',
-        description: 'Interfaces designed around cognitive load science and real clinician workflows — not guesswork.',
+        description: 'Interfaces shaped by workflow mapping, accessibility standards, and direct clinician feedback.',
         features: [
             'Accessibility-first design systems',
             'Clinician journey mapping',
@@ -35,7 +35,7 @@ const services = [
         features: [
             'PostgreSQL & Supabase',
             'RESTful & GraphQL APIs',
-            'Authentication & HIPAA patterns',
+            'Authentication, permissions, and HIPAA-aware patterns',
             'Cloud infrastructure (AWS, Vercel)',
         ],
     },
@@ -43,7 +43,7 @@ const services = [
         icon: BrainCircuit,
         title: 'AI Integration Strategy',
         accent: 'var(--color-secondary)',
-        description: 'Purposeful AI implementation that augments clinical decision-making — never replaces it. LLMs, RAG, and agentic systems built responsibly.',
+        description: 'Purposeful AI implementation for drafting, retrieval, and workflow support that stays inside clinician review.',
         features: [
             'LLM-powered clinical assistants',
             'RAG pipelines & vector search',
@@ -92,7 +92,7 @@ export default function Services() {
                         CAPABILITIES
                     </h2>
                     <p className="text-lg md:text-xl text-[var(--color-text-muted)] font-body leading-relaxed">
-                        I build digital systems that solve real problems in clinical settings — from patient intake portals to AI-powered therapy tools.
+                        I build digital systems for real clinical and educational workflows, from intake tools and learning platforms to carefully reviewed AI-assisted experiences.
                     </p>
                 </div>
 

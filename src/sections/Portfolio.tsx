@@ -13,10 +13,10 @@ const projects = [
     },
     {
         title: 'Interactive Patient Portal',
-        category: 'Patient-Facing Application',
-        description: 'A patient engagement platform with real-time progress tracking, agentic AI assistants that adapt to individual performance, and interactive data visualizations that make clinical outcomes tangible.',
+        category: 'Private Client Work',
+        description: 'A private patient engagement product focused on progress visibility, guided workflows, and clearer communication for patients and care teams. Case study details available on request.',
         stack: ['React', 'Supabase', 'PostgreSQL', 'Agentic AI'],
-        link: '#',
+        link: null,
     },
     {
         title: 'VoiceIQ',
@@ -35,14 +35,14 @@ const projects = [
     {
         title: 'Informed Consent Tool',
         category: 'Clinical Workflow',
-        description: 'Built in collaboration with the Dysphagia Outreach Project, this guided consent platform walks clinicians through capacity assessment, risk disclosure, and teach-back verification — with HIPAA-compliant documentation at every step.',
+        description: 'Built in collaboration with the Dysphagia Outreach Project, this guided consent platform walks clinicians through capacity assessment, risk disclosure, and teach-back verification with privacy-sensitive documentation workflows.',
         stack: ['Next.js', 'React', 'TypeScript'],
         link: 'https://consent-1by6.onrender.com',
     },
     {
         title: 'SLP Prompt Library',
         category: 'Clinical Resource',
-        description: '40+ free, copy-paste-ready prompt templates built for medical SLPs — spanning documentation, treatment planning, patient education, and research across 11+ clinical domains. Includes an interactive Prompt Coach to help you build effective prompts for any workflow. Grounded in EBP.',
+        description: '40+ free prompt templates built for medical SLPs across 15 clinical domains, now paired with beginner guidance on LLMs, safer prompting habits, and a dated model-pricing reference.',
         stack: ['React', 'TypeScript', 'EBP'],
         link: '/prompts',
     },
@@ -82,8 +82,9 @@ export default function Portfolio() {
 
                 <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {projects.map((project, index) => {
-                        const isInternal = project.link.startsWith('/');
-                        const isExternal = project.link !== '#' && !isInternal;
+                        const link = project.link;
+                        const isInternal = typeof link === 'string' && link.startsWith('/');
+                        const isExternal = typeof link === 'string' && !isInternal;
 
                         const cardContent = (
                             <>
@@ -127,15 +128,20 @@ export default function Portfolio() {
                                             Explore Prompts
                                         </div>
                                     )}
+                                    {!project.link && (
+                                        <div className="flex items-center gap-2 text-sm font-mono font-bold text-[var(--color-text-muted)]">
+                                            Private case study on request
+                                        </div>
+                                    )}
                                 </div>
                             </>
                         );
 
-                        if (isInternal) {
+                        if (typeof link === 'string' && link.startsWith('/')) {
                             return (
                                 <Link
                                     key={index}
-                                    to={project.link}
+                                    to={link}
                                     className="group card-solid p-8 lg:p-10 flex flex-col justify-between"
                                 >
                                     {cardContent}
@@ -143,16 +149,27 @@ export default function Portfolio() {
                             );
                         }
 
+                        if (typeof link === 'string') {
+                            return (
+                                <a
+                                    key={index}
+                                    href={link}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="group card-solid p-8 lg:p-10 flex flex-col justify-between"
+                                >
+                                    {cardContent}
+                                </a>
+                            );
+                        }
+
                         return (
-                            <a
+                            <article
                                 key={index}
-                                href={project.link}
-                                target={isExternal ? '_blank' : undefined}
-                                rel={isExternal ? 'noreferrer' : undefined}
                                 className="group card-solid p-8 lg:p-10 flex flex-col justify-between"
                             >
                                 {cardContent}
-                            </a>
+                            </article>
                         );
                     })}
                 </div>

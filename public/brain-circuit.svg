@@ -1,97 +1,143 @@
-<svg width="1400" height="1000" viewBox="0 0 1400 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="brainStroke" x1="360" y1="220" x2="1040" y2="780" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#F4EFE8"/>
-      <stop offset="0.45" stop-color="#E67A5A"/>
-      <stop offset="1" stop-color="#A2B7A9"/>
+    <linearGradient id="bgGrad" x1="220" y1="120" x2="1320" y2="1060" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0C131B"/>
+      <stop offset="0.5" stop-color="#151D27"/>
+      <stop offset="1" stop-color="#111A24"/>
     </linearGradient>
-    <linearGradient id="circuitStroke" x1="180" y1="180" x2="1220" y2="860" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#F18462"/>
-      <stop offset="1" stop-color="#9EB7A8"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(700 500) rotate(90) scale(360 420)">
-      <stop offset="0" stop-color="#E97453" stop-opacity="0.35"/>
-      <stop offset="1" stop-color="#E97453" stop-opacity="0"/>
+    <radialGradient id="bgBloomA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(560 610) rotate(90) scale(420 470)">
+      <stop offset="0" stop-color="#E8744D" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#E8744D" stop-opacity="0"/>
     </radialGradient>
-    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="4"/>
+    <radialGradient id="bgBloomB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1140 420) rotate(90) scale(300 360)">
+      <stop offset="0" stop-color="#94B6A6" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#94B6A6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="52" height="52" patternUnits="userSpaceOnUse">
+      <path d="M52 0H0V52" stroke="#93A8BC" stroke-opacity="0.23" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="outlineGrad" x1="470" y1="250" x2="1130" y2="890" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F3EBE1"/>
+      <stop offset="0.43" stop-color="#F17B56"/>
+      <stop offset="1" stop-color="#8EB3A2"/>
+    </linearGradient>
+    <linearGradient id="leftFold" x1="500" y1="320" x2="790" y2="780" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F1DED2"/>
+      <stop offset="1" stop-color="#E57B59"/>
+    </linearGradient>
+    <linearGradient id="rightCircuit" x1="790" y1="300" x2="1150" y2="860" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#98B8A9"/>
+      <stop offset="1" stop-color="#F07D58"/>
+    </linearGradient>
+    <linearGradient id="ecgGrad" x1="280" y1="980" x2="1320" y2="980" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8FB3A2"/>
+      <stop offset="0.45" stop-color="#F07A54"/>
+      <stop offset="1" stop-color="#8FB3A2"/>
+    </linearGradient>
+    <clipPath id="brainClip">
+      <path d="M800 242C695 165 525 196 446 326C380 434 404 587 519 675C569 714 608 769 618 829C668 876 729 904 800 904C871 904 932 876 982 829C992 769 1031 714 1081 675C1196 587 1220 434 1154 326C1075 196 905 165 800 242Z"/>
+    </clipPath>
+    <filter id="nodeGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5"/>
     </filter>
   </defs>
 
-  <rect width="1400" height="1000" fill="transparent"/>
-  <ellipse cx="700" cy="500" rx="420" ry="340" fill="url(#glow)"/>
+  <rect width="1600" height="1200" fill="url(#bgGrad)"/>
+  <rect width="1600" height="1200" fill="url(#grid)"/>
+  <ellipse cx="560" cy="610" rx="470" ry="420" fill="url(#bgBloomA)"/>
+  <ellipse cx="1140" cy="420" rx="360" ry="300" fill="url(#bgBloomB)"/>
 
   <g stroke-linecap="round" stroke-linejoin="round">
-    <!-- Brain outer contour -->
-    <path d="M700 220C621 179 491 215 438 327C395 420 426 540 530 606C575 635 604 690 602 748H700V220Z" stroke="url(#brainStroke)" stroke-width="9"/>
-    <path d="M700 220C779 179 909 215 962 327C1005 420 974 540 870 606C825 635 796 690 798 748H700V220Z" stroke="url(#brainStroke)" stroke-width="9"/>
-    <path d="M602 748C624 792 658 816 700 816C742 816 776 792 798 748" stroke="url(#brainStroke)" stroke-width="9"/>
-
-    <!-- Left hemisphere folds -->
-    <path d="M658 278C595 270 515 302 483 365" stroke="url(#brainStroke)" stroke-width="6"/>
-    <path d="M648 338C584 334 523 364 492 421" stroke="url(#brainStroke)" stroke-width="6"/>
-    <path d="M646 402C578 404 534 441 514 494" stroke="url(#brainStroke)" stroke-width="6"/>
-    <path d="M652 470C595 483 557 524 543 573" stroke="url(#brainStroke)" stroke-width="6"/>
-    <path d="M664 542C617 565 594 608 592 654" stroke="url(#brainStroke)" stroke-width="6"/>
-
-    <!-- Right hemisphere folds -->
-    <path d="M742 278C805 270 885 302 917 365" stroke="url(#brainStroke)" stroke-width="6"/>
-    <path d="M752 338C816 334 877 364 908 421" stroke="url(#brainStroke)" stroke-width="6"/>
-    <path d="M754 402C822 404 866 441 886 494" stroke="url(#brainStroke)" stroke-width="6"/>
-    <path d="M748 470C805 483 843 524 857 573" stroke="url(#brainStroke)" stroke-width="6"/>
-    <path d="M736 542C783 565 806 608 808 654" stroke="url(#brainStroke)" stroke-width="6"/>
-
-    <!-- Midline -->
-    <path d="M700 242V740" stroke="url(#brainStroke)" stroke-width="5"/>
+    <path d="M800 242C695 165 525 196 446 326C380 434 404 587 519 675C569 714 608 769 618 829C668 876 729 904 800 904C871 904 932 876 982 829C992 769 1031 714 1081 675C1196 587 1220 434 1154 326C1075 196 905 165 800 242Z" stroke="url(#outlineGrad)" stroke-width="10"/>
+    <path d="M800 280V840" stroke="url(#outlineGrad)" stroke-width="6"/>
+    <path d="M624 828C668 884 732 916 800 916C868 916 932 884 976 828" stroke="url(#outlineGrad)" stroke-width="8"/>
   </g>
 
-  <!-- Circuit traces -->
-  <g stroke="url(#circuitStroke)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.95">
-    <path d="M306 322H430"/>
-    <path d="M232 450H474"/>
-    <path d="M270 592H524"/>
-    <path d="M355 726H596"/>
-    <path d="M970 304H1114"/>
-    <path d="M914 434H1176"/>
-    <path d="M888 574H1140"/>
-    <path d="M820 712H1086"/>
-    <path d="M430 322V270H230"/>
-    <path d="M474 450V404H188"/>
-    <path d="M524 592V650H260"/>
-    <path d="M596 726V792H332"/>
-    <path d="M970 304V254H1178"/>
-    <path d="M914 434V390H1210"/>
-    <path d="M888 574V626H1182"/>
-    <path d="M820 712V768H1126"/>
+  <g clip-path="url(#brainClip)">
+    <rect x="402" y="186" width="796" height="756" fill="#171F2A" fill-opacity="0.64"/>
+
+    <!-- Left organic hemisphere -->
+    <g stroke="url(#leftFold)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+      <path d="M742 330C642 316 560 364 516 446"/>
+      <path d="M730 394C624 392 556 448 526 520"/>
+      <path d="M722 458C624 468 572 520 552 588"/>
+      <path d="M724 526C650 552 608 608 594 674"/>
+      <path d="M732 596C670 632 640 680 634 742"/>
+      <path d="M710 674C664 704 644 742 640 786"/>
+      <path d="M660 360C606 388 576 430 562 474"/>
+      <path d="M678 742C700 770 718 792 730 822"/>
+    </g>
+
+    <!-- Right circuitry hemisphere -->
+    <g stroke="url(#rightCircuit)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+      <path d="M850 334H1052V372H1140"/>
+      <path d="M858 398H1020V442H1172"/>
+      <path d="M858 462H1104V508H1188"/>
+      <path d="M850 528H998V568H1152"/>
+      <path d="M846 594H1066V640H1184"/>
+      <path d="M834 662H964V718H1128"/>
+      <path d="M824 730H1042V778H1162"/>
+      <path d="M1086 372V326H1228"/>
+      <path d="M1118 442V404H1270"/>
+      <path d="M1138 508V554H1260"/>
+      <path d="M1098 568V614H1242"/>
+      <path d="M1128 718V762H1246"/>
+    </g>
+
+    <g fill="#F07F58">
+      <circle cx="1140" cy="372" r="8"/>
+      <circle cx="1172" cy="442" r="8"/>
+      <circle cx="1188" cy="508" r="8"/>
+      <circle cx="1152" cy="568" r="8"/>
+      <circle cx="1184" cy="640" r="8"/>
+      <circle cx="1128" cy="718" r="8"/>
+      <circle cx="1162" cy="778" r="8"/>
+      <circle cx="1228" cy="326" r="9"/>
+      <circle cx="1270" cy="404" r="9"/>
+      <circle cx="1260" cy="554" r="9"/>
+      <circle cx="1242" cy="614" r="9"/>
+      <circle cx="1246" cy="762" r="9"/>
+    </g>
+
+    <g fill="#A4C0B1">
+      <circle cx="870" cy="334" r="6"/>
+      <circle cx="888" cy="462" r="6"/>
+      <circle cx="846" cy="594" r="6"/>
+      <circle cx="834" cy="662" r="6"/>
+      <circle cx="824" cy="730" r="6"/>
+    </g>
   </g>
 
-  <!-- Nodes -->
-  <g fill="#F28A67">
-    <circle cx="230" cy="270" r="10"/>
-    <circle cx="188" cy="404" r="10"/>
-    <circle cx="260" cy="650" r="10"/>
-    <circle cx="332" cy="792" r="10"/>
-    <circle cx="1178" cy="254" r="10"/>
-    <circle cx="1210" cy="390" r="10"/>
-    <circle cx="1182" cy="626" r="10"/>
-    <circle cx="1126" cy="768" r="10"/>
+  <!-- External signal traces -->
+  <g stroke="url(#rightCircuit)" stroke-width="5" stroke-linecap="round" opacity="0.9">
+    <path d="M290 386H446"/>
+    <path d="M240 516H496"/>
+    <path d="M284 668H550"/>
+    <path d="M360 790H624"/>
+    <path d="M1154 348H1332"/>
+    <path d="M1178 476H1392"/>
+    <path d="M1160 612H1364"/>
+    <path d="M1118 744H1320"/>
   </g>
 
-  <g fill="#A5BEAE">
-    <circle cx="306" cy="322" r="7"/>
-    <circle cx="270" cy="592" r="7"/>
-    <circle cx="970" cy="304" r="7"/>
-    <circle cx="820" cy="712" r="7"/>
+  <!-- Neural points -->
+  <g fill="#F08A64">
+    <circle cx="446" cy="386" r="9"/>
+    <circle cx="496" cy="516" r="9"/>
+    <circle cx="550" cy="668" r="9"/>
+    <circle cx="624" cy="790" r="9"/>
+    <circle cx="1332" cy="348" r="9"/>
+    <circle cx="1392" cy="476" r="9"/>
+    <circle cx="1364" cy="612" r="9"/>
+    <circle cx="1320" cy="744" r="9"/>
+  </g>
+  <g filter="url(#nodeGlow)" fill="#F08A64" fill-opacity="0.35">
+    <circle cx="686" cy="412" r="15"/>
+    <circle cx="956" cy="524" r="14"/>
+    <circle cx="742" cy="684" r="13"/>
+    <circle cx="896" cy="734" r="12"/>
   </g>
 
-  <!-- Neuro waveform -->
-  <path d="M282 874H406L442 802L484 930L535 744L592 888L649 690L703 852L760 736L824 900L884 804L944 866H1114" stroke="url(#circuitStroke)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.84"/>
-
-  <!-- Soft accent points -->
-  <g filter="url(#softGlow)" fill="#F08D69" opacity="0.45">
-    <circle cx="558" cy="356" r="10"/>
-    <circle cx="838" cy="462" r="10"/>
-    <circle cx="644" cy="604" r="10"/>
-    <circle cx="744" cy="664" r="10"/>
-  </g>
+  <!-- ECG / speech waveform -->
+  <path d="M268 990H420L458 930L504 1040L554 862L618 1032L678 792L744 970L804 838L864 1016L930 918L992 1000H1324" stroke="url(#ecgGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
 </svg>

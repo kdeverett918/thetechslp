@@ -640,24 +640,28 @@ export default function Playground() {
   const demos: {
     title: string;
     description: string;
+    proof: string;
     icon: React.ReactNode;
     component: React.ReactNode;
   }[] = [
     {
       title: 'Reaction Blitz',
       description: 'Tap the targets before they vanish. Build combos for bonus points. How fast are you?',
+      proof: 'Shows tight feedback loops, large tap targets, and game feel that can translate into home practice and patient engagement tools.',
       icon: <Zap className="w-5 h-5" />,
       component: <ReactionBlitz />,
     },
     {
       title: 'Memory Match',
       description: 'Flip cards to find matching pairs. Fewer moves = more stars. Can you get a perfect 3?',
+      proof: 'Shows how repetition, streak logic, and low-friction scoring can support learning modules or clinician training experiences.',
       icon: <Grid3X3 className="w-5 h-5" />,
       component: <MemoryMatch />,
     },
     {
       title: 'Simon Says',
       description: 'Watch the pattern, then repeat it. Each round adds one more. How far can you go?',
+      proof: 'Shows audiovisual pacing, progressive difficulty, and error recovery patterns that work well in guided digital exercises.',
       icon: <Lightbulb className="w-5 h-5" />,
       component: <SimonSays />,
     },
@@ -676,7 +680,7 @@ export default function Playground() {
             TRY IT YOURSELF
           </h2>
           <p className="text-lg md:text-xl text-[var(--color-text-muted)] font-body leading-relaxed">
-            Try the interactive demos below — built to show what clinical apps can feel like when UX is actually designed for engagement.
+            These are lightweight interaction studies that show the feedback, pacing, and motivation patterns I use when building patient-facing or learning-focused products.
           </p>
         </div>
 
@@ -698,6 +702,9 @@ export default function Playground() {
               </div>
               <p className="text-sm text-[var(--color-text-muted)] font-body mb-6">
                 {demo.description}
+              </p>
+              <p className="text-xs text-[var(--color-text-muted)] font-body border-l-2 border-[var(--color-secondary)]/40 pl-3 mb-6">
+                {demo.proof}
               </p>
 
               {/* Demo body */}
