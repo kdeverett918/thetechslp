@@ -152,6 +152,16 @@ const BEGINNER_STARTER_IDS = new Set([
     'peds-parent-coaching',
     'doc-soap-note',
     'hipaa-phi-deidentification',
+    'prompt-critique-coach',
+    'ask-clarifying-questions-first',
+    'model-chooser-slp-task',
+    'source-material-only-draft',
+    'output-hallucination-check',
+    'clinical-document-qa-checklist',
+    'reading-level-rewriter',
+    'research-triage-summary',
+    'interdisciplinary-email-draft',
+    'iep-meeting-prep-guide',
 ]);
 
 const VERIFY_CLOSELY_IDS = new Set([
@@ -414,7 +424,7 @@ export default function PromptLibrary() {
                     </p>
                     <div className="mt-4 flex flex-wrap gap-3 font-mono text-xs font-bold uppercase tracking-widest text-[var(--color-secondary)]">
                         <span>{prompts.length} prompts</span>
-                        <span>15 domains</span>
+                        <span>{categories.length} categories</span>
                         <span>Updated March 5, 2026</span>
                     </div>
                 </div>

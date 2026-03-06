@@ -367,5 +367,95 @@
     "prompt": "You are an ASHA-certified speech-language pathologist specializing in AAC and core vocabulary instruction. Design a structured teaching plan for introducing core vocabulary words.\n\nInclude:\n1. Core Word Selection:\n   - 10 priority core words to teach first (with rationale based on research)\n   - Frequency and versatility analysis for each word\n   - How each word can be used across multiple communication functions\n2. Teaching Methodology:\n   - Aided language stimulation protocol (how to model on the AAC system)\n   - Naturalistic teaching opportunities throughout the day\n   - Structured teaching activities for each core word\n   - Elicitation strategies that go beyond simple requesting\n3. Activity Plans (3 per core word):\n   - Activity name and context (play, snack, reading, movement)\n   - How to create natural opportunities for the target word\n   - Modeling script (what the partner says and does)\n   - Expected responses and how to respond to each\n   - Data collection method\n4. Communication Partner Quick Guide:\n   - One-page reference for each core word\n   - When to model, when to wait, when to prompt\n   - Examples of aided language stimulation in daily routines\n   - Common mistakes (over-prompting, testing, not modeling enough)\n5. Progress Monitoring:\n   - How to track spontaneous vs. prompted use\n   - Criteria for \"mastery\" and moving to new words\n   - Data collection tools and schedules\n6. Word Combinations:\n   - When to start combining core words\n   - Natural word combination targets (e.g., \"more + [word]\", \"want + [word]\")\n   - Activities that encourage two-word combinations\n\nIndividual Profile:\n[Age, diagnosis, current communication level, AAC system in use]\n\nCurrent Core Word Use:\n[Which core words, if any, are already in the individual's repertoire?]\n\nPriority Communication Contexts:\n[Where does this person most need to communicate?]\n\nGround all recommendations in core vocabulary research (e.g., Banajee, Dicarlo & Stricklin, 2003; Clendon & Andersen, 2016).",
     "tags": ["AAC", "core vocabulary", "aided language stimulation", "teaching", "modeling"],
     "level": "beginner"
+  },
+  {
+    "id": "prompt-critique-coach",
+    "category": "LLM Basics & Prompting",
+    "title": "Prompt Critique Coach",
+    "description": "Improve a rough prompt so it is clearer, safer, and more likely to produce useful SLP-facing output.",
+    "prompt": "You are an AI prompt coach supporting a licensed speech-language pathologist. Review the draft prompt below and rewrite it so it is clearer, safer, and more likely to produce a useful result.\n\nDo all of the following:\n1. Briefly identify the main weaknesses in the original prompt:\n   - missing context or audience\n   - unclear task or output format\n   - missing constraints, sources, or verification steps\n   - clinical, billing, privacy, or legal overreach\n2. Rewrite the prompt using this structure:\n   - role\n   - task\n   - context\n   - output format\n   - guardrails and what not to do\n3. Add follow-up questions only if key information is missing.\n4. Add a short note explaining when the result would still need clinician confirmation.\n\nOriginal prompt:\n[Paste your rough prompt here]\n\nContext about the case or task:\n[Optional background, fully de-identified]\n\nKeep the rewrite practical and plain-language. Do not invent policies, citations, payer rules, or diagnosis language.",
+    "tags": ["prompting", "prompt design", "llm basics", "meta-prompt", "workflow"],
+    "level": "beginner"
+  },
+  {
+    "id": "ask-clarifying-questions-first",
+    "category": "LLM Basics & Prompting",
+    "title": "Ask Clarifying Questions First",
+    "description": "Have the model ask the minimum useful follow-up questions before it drafts anything.",
+    "prompt": "You are an AI assistant supporting a licensed speech-language pathologist. Before you draft anything, ask the minimum number of clarifying questions needed to complete the task well.\n\nInstructions:\n1. First, identify what is missing that would materially change the output.\n2. Ask no more than 5 focused questions.\n3. Group questions by topic if helpful (audience, setting, age, diagnosis, output format, timeline, tone, source material).\n4. If the request is already specific enough, say \"No clarifying questions needed\" and proceed.\n5. Do not invent patient details, billing rules, diagnosis language, or legal conclusions.\n6. If the task could affect care, documentation, reimbursement, eligibility, or compliance, add a reminder that the final result needs clinician review.\n\nTask I want help with:\n[Paste your request here]\n\nKnown details:\n[Paste what you already know, fully de-identified]\n\nAfter asking your questions, wait for my answers before drafting.",
+    "tags": ["prompting", "clarifying questions", "workflow", "llm basics", "intake"],
+    "level": "beginner"
+  },
+  {
+    "id": "model-chooser-slp-task",
+    "category": "LLM Basics & Prompting",
+    "title": "Model Chooser for SLP Tasks",
+    "description": "Choose the best-fit AI tool for a task based on privacy needs, web access, speed, and budget.",
+    "prompt": "You are an AI tool selection assistant supporting a licensed speech-language pathologist. Recommend the best-fit AI chat tool or model category for the task below.\n\nCompare options based on:\n1. Task type:\n   - drafting or rewriting\n   - brainstorming or lesson ideas\n   - document review\n   - research or web lookup\n   - multimodal work such as file upload or image review\n2. Risk level:\n   - low-risk administrative writing\n   - clinical drafting that still needs review\n   - tasks that should stay inside an employer-approved workflow\n3. Constraints:\n   - privacy requirements\n   - budget sensitivity\n   - need for citations or web access\n   - need for speed vs. depth\n4. Recommendation format:\n   - primary recommendation\n   - backup option\n   - why each fits\n   - what not to use for this task\n   - when a local, employer-approved, or non-AI workflow is safer\n\nTask:\n[Describe the task]\n\nConstraints:\n[Budget, privacy expectations, speed, file types, need for web access]\n\nKeep the answer practical and plain-language. Do not use marketing language or claim any model is perfectly accurate.",
+    "tags": ["llm basics", "model selection", "tool choice", "workflow", "prompting"],
+    "level": "beginner"
+  },
+  {
+    "id": "source-material-only-draft",
+    "category": "LLM Basics & Prompting",
+    "title": "Draft From Source Material Only",
+    "description": "Create a draft using only the notes, policy, article, or source material you provide.",
+    "prompt": "You are a drafting assistant supporting a licensed speech-language pathologist. Create the requested draft using only the source material provided below.\n\nRules:\n1. Use only the facts, language, and constraints found in the source material.\n2. If something important is missing, label it clearly as MISSING SOURCE INFORMATION.\n3. Do not invent citations, payer rules, diagnosis statements, treatment recommendations, timelines, or policy details.\n4. Preserve uncertainty when the source is incomplete or conflicting.\n5. If requested, provide a short section called NEEDS CLINICIAN CONFIRMATION for any statements that could affect care, documentation, reimbursement, or compliance.\n6. Keep the output organized and ready for human review.\n\nRequested output:\n[Example: parent handout, email, summary, SOAP note draft, policy summary]\n\nSource material:\n[Paste the de-identified notes, article excerpt, policy text, or other source content here]\n\nOptional audience and tone:\n[Parent-friendly, team-facing, formal, concise, etc.]",
+    "tags": ["source-based drafting", "prompting", "documentation", "llm basics", "hallucination prevention"],
+    "level": "beginner"
+  },
+  {
+    "id": "output-hallucination-check",
+    "category": "LLM Basics & Prompting",
+    "title": "Output Hallucination Check",
+    "description": "Audit an AI-generated draft for unsupported claims, invented details, and risky overreach.",
+    "prompt": "You are a quality assurance assistant supporting a licensed speech-language pathologist. Review the AI-generated output below and flag anything that appears unsupported, invented, overstated, or risky.\n\nCheck for:\n1. Unsupported clinical claims\n2. Invented citations, research findings, payer rules, state licensure rules, or legal statements\n3. Diagnosis, coding, eligibility, or medical recommendations that go beyond the provided information\n4. Missing caveats where the draft sounds too certain\n5. Statements that should be labeled NEEDS CLINICIAN CONFIRMATION\n\nOutput format:\n1. Supported statements\n2. Unclear or partially supported statements\n3. Unsupported or high-risk statements\n4. Missing information needed before this should be used\n5. Suggested revision strategy\n\nOriginal instructions or source material:\n[Paste what the model was supposed to use]\n\nAI-generated output to review:\n[Paste the draft here]\n\nDo not silently fix the draft. Show me what is wrong and why.",
+    "tags": ["hallucination check", "quality assurance", "prompting", "review", "llm basics"],
+    "level": "beginner"
+  },
+  {
+    "id": "clinical-document-qa-checklist",
+    "category": "LLM Basics & Prompting",
+    "title": "Clinical Document QA Checklist",
+    "description": "Review a drafted note, eval, handout, or LMN for missing information, vague wording, and review flags.",
+    "prompt": "You are a documentation quality review assistant supporting a licensed speech-language pathologist. Review the draft document below and create a QA checklist before it is finalized.\n\nCheck for:\n1. Missing essentials:\n   - patient/client context that is needed\n   - setting, date, duration, or service details\n   - goals, outcomes, response to treatment, or follow-up plan\n2. Wording problems:\n   - vague phrases\n   - unsupported conclusions\n   - language that sounds more certain than the data support\n3. Risk flags:\n   - billing, coding, eligibility, or policy statements that need manual verification\n   - diagnosis or medical recommendations that require clinician confirmation\n   - privacy concerns or unnecessary identifying detail\n4. Readability and workflow:\n   - sections that are too long or redundant\n   - places where bullets, headings, or plainer language would help\n\nOutput format:\n   - Ready as written\n   - Needs revision before use\n   - Missing information to gather\n   - Suggested wording fixes\n   - NEEDS CLINICIAN CONFIRMATION items\n\nDocument type:\n[SOAP note, evaluation draft, LMN, caregiver handout, school summary, etc.]\n\nDraft text:\n[Paste the de-identified draft here]\n\nDo not assign billing codes, payer rules, or legal conclusions as final.",
+    "tags": ["documentation", "quality assurance", "review", "llm basics", "prompting"],
+    "level": "beginner"
+  },
+  {
+    "id": "reading-level-rewriter",
+    "category": "LLM Basics & Prompting",
+    "title": "Reading Level Rewriter",
+    "description": "Rewrite clinician-approved text in plain language without removing important safety information.",
+    "prompt": "You are a plain-language rewriting assistant supporting a licensed speech-language pathologist. Rewrite the text below so it is easier for a patient, parent, or caregiver to understand.\n\nInstructions:\n1. Aim for approximately a 5th to 6th grade reading level unless I specify otherwise.\n2. Preserve the original meaning.\n3. Keep any warnings, red flags, timelines, and follow-up instructions.\n4. Replace jargon with plain language, but do not oversimplify clinical meaning.\n5. If a term should stay because it is important, briefly explain it in everyday language.\n6. If any sentence is unclear or potentially misleading, flag it under REVIEW BEFORE USING.\n\nAudience:\n[Parent, adult patient, teacher, caregiver, support staff]\n\nPreferred reading level:\n[Optional]\n\nOriginal text:\n[Paste the clinician-approved text here]\n\nReturn:\n1. Plain-language version\n2. Terms that may still need explanation\n3. REVIEW BEFORE USING items",
+    "tags": ["plain language", "health literacy", "caregiver education", "rewriting", "llm basics"],
+    "level": "beginner"
+  },
+  {
+    "id": "research-triage-summary",
+    "category": "LLM Basics & Prompting",
+    "title": "Research Triage Summary",
+    "description": "Turn an abstract or article excerpt into a quick clinical-use summary with limits and cautions.",
+    "prompt": "You are a research triage assistant supporting a licensed speech-language pathologist. Summarize the article or abstract below for quick clinical review.\n\nOrganize the summary into:\n1. Clinical question or purpose\n2. Population and setting\n3. Intervention, assessment, or comparison being discussed\n4. Main findings in plain language\n5. Important limitations or bias risks\n6. What this may be useful for in practice\n7. What not to over-claim from this paper\n8. Questions I should verify by reading the full text\n\nSource text:\n[Paste the abstract, article excerpt, or study notes here]\n\nOptional context:\n[Adult rehab, pediatrics, school setting, dysphagia, AAC, voice, etc.]\n\nUse only the information provided. Do not invent statistics, effect sizes, or conclusions that are not explicitly stated.",
+    "tags": ["research", "ebp", "article summary", "critical appraisal", "llm basics"],
+    "level": "beginner"
+  },
+  {
+    "id": "interdisciplinary-email-draft",
+    "category": "LLM Basics & Prompting",
+    "title": "Interdisciplinary Email Draft",
+    "description": "Draft a concise team-facing email from de-identified facts only.",
+    "prompt": "You are a professional writing assistant supporting a licensed speech-language pathologist. Draft a concise interdisciplinary email using only the facts provided below.\n\nAudience examples:\n- physician or APP\n- dietitian\n- OT or PT\n- case manager\n- teacher or school team\n\nInstructions:\n1. Use a respectful, efficient tone.\n2. Keep the email brief and easy to scan.\n3. State the reason for writing, relevant background, current concern, and clear next step or request.\n4. Use only the information provided.\n5. Do not invent medical decisions, orders, test results, diagnosis language, or policy requirements.\n6. If any part of the request is too vague, list the missing details before drafting.\n\nRecipient:\n[Who the email is going to]\n\nPurpose:\n[Update, question, coordination request, documentation follow-up, scheduling issue]\n\nFacts to include:\n[Paste de-identified facts only]\n\nReturn:\n1. Subject line\n2. Email draft\n3. Missing details, if any",
+    "tags": ["email", "interdisciplinary communication", "care coordination", "plain language", "llm basics"],
+    "level": "beginner"
+  },
+  {
+    "id": "iep-meeting-prep-guide",
+    "category": "LLM Basics & Prompting",
+    "title": "IEP Meeting Prep Guide",
+    "description": "Turn de-identified school data into talking points, parent-friendly explanations, and follow-up questions for an IEP meeting.",
+    "prompt": "You are a school-based planning assistant supporting a licensed speech-language pathologist. Help me prepare for an upcoming IEP meeting using the information below.\n\nCreate:\n1. A short case snapshot\n2. Key talking points for the meeting\n3. Parent-friendly explanations of the student's communication profile and current needs\n4. Likely questions from family or team members\n5. Data points or documents I should have ready\n6. Areas where I need more information before the meeting\n7. Statements that should stay cautious and avoid overpromising\n\nMeeting context:\n[Annual review, initial evaluation meeting, reevaluation, progress update, transition meeting]\n\nStudent information and de-identified data:\n[Goals, progress data, teacher concerns, parent concerns, classroom impact, supports in place]\n\nKeep the language practical and family-friendly. Do not make final eligibility, legal, or compliance determinations.",
+    "tags": ["school slp", "iep", "meeting prep", "family communication", "llm basics"],
+    "level": "beginner"
   }
 ]

@@ -42,7 +42,7 @@ const projects = [
     {
         title: 'SLP Prompt Library',
         category: 'Clinical Resource',
-        description: '40+ free prompt templates built for medical SLPs across 15 clinical domains, now paired with beginner guidance on LLMs, safer prompting habits, and a dated model-pricing reference.',
+        description: 'A growing prompt library for medical SLPs with clinical templates, AI literacy prompts, safer prompting guidance, and beginner-friendly onboarding for using chat tools well.',
         stack: ['React', 'TypeScript', 'EBP'],
         link: '/prompts',
     },
